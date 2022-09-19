@@ -17,3 +17,17 @@ thead {
   background: #dddcdc;
 }
 
+.bg-tab {
+    background-color: rgba(255,255,255,0.13);
+    backdrop-filter: blur(40px);
+}
+
+.tab-border {
+    border-radius: 10px;
+}
+
+.tab {
+    position: relative;
+    top: 150px;
+    left: 50px;
+}

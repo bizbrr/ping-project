@@ -14,12 +14,33 @@
 </style>
 
 <body>
-<div class="container mt-5">
+    <!-- navbar -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top py-3">
+            <div class="container"><a href="index.php" class="navbar-brand text-uppercase font-weight-bold">PING ESIGELEC</a>
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+                
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="index.php" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
+                        <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+     <!--end navbar -->
+<div class="tab">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
-                <div class="rounded">
-                    <div class="table-responsive table-borderless">
-                        <table class="table table-dark">
+                    <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Sujet créés</h3>
+                    <button type="button" class="btn btn-primary" style="margin-bottom:20px;"><i class="fas fa-glasses"></i> Créer un nouveau sujet</button>
+                    <div class="table-responsive tab-border">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>Id sujet</th>
@@ -30,7 +51,7 @@
                                 </tr>
                             </thead>
                             <tbody class="table-body">
-                                <tr class="cell-1">
+                                <tr class="cell-1 bg-tab">
                                     <td>13487</td>
                                     <td>Hyperloop</td>
                                     <td><span class="badge bg-success">Validé</span></td>
@@ -39,9 +60,8 @@
                                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                     </td>
                                     <td>Today</td>
-                                    <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
                                 </tr>
-                                <tr class="cell-1">
+                                <tr class="cell-1 bg-tab">
                                     <td>13453</td>
                                     <td>AI</td>
                                     <td><span class="badge bg-info">En attente</span></td>
@@ -50,9 +70,8 @@
                                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                     </td>
                                     <td>Yesterday</td>
-                                    <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
                                 </tr>
-                                <tr class="cell-1">
+                                <tr class="cell-1 bg-tab">
                                     <td>13498</td>
                                     <td>Starlink</td>
                                     <td><span class="badge bg-danger">Refusé</span></td>
@@ -61,7 +80,6 @@
                                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                     </td>
                                     <td>May 12,2020</td>
-                                    <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -69,7 +87,9 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
+
+
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
