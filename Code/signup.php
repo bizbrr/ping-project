@@ -35,22 +35,21 @@
         </nav>
     </header>
      <!--end navbar -->
-     <div class="background"> 
 
-  </div>
-  <form>
-      <h3>Connexion</h3>
-      <h5>Accès tuteur</h5>
+    <form style="height: 590px !important; width: 500px !important;">
+      <h3>Formulaire d'inscription</h3>
+      <h5>Compte tuteur</h5>
 
-      <label for="username">Nom d'utilisateur</label>
+      <label for="email">Saisissez votre mail</label>
+      <input type="text" placeholder="Adresse E-mail" name="email" id="email">
+
+      <label for="username">Choisissez un nom d'utilisateur</label>
       <input type="text" placeholder="Nom d'utilisateur" id="username">
 
-      <label for="password">Mot de passe</label>
+      <label for="password">Choisissez un mot de passe</label>
       <input type="password" placeholder="Mot de passe" name="mdp" id="password">
 
-      <button class="button">Connexion</button>
-      <div style="font-size: 12px; margin-top: 20px; text-align: center;">Vous n'avez pas de compte ? <a href="signup.php">Inscrivez-vous</a></div>
-  </form>
+      <button class="button">Inscription</button>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>

@@ -2,6 +2,13 @@
 body{
     background-color: #080710;
 }
+
+.signup{
+  font-size: 12px;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .background{
     width: 430px;
     height: 520px;
@@ -68,6 +75,7 @@ input{
 
 .button{
     margin-top: 50px;
+    margin-bottom: 25px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -77,6 +85,8 @@ input{
     border-radius: 20px;
     cursor: pointer;
 }
+
+
 .social{
   margin-top: 30px;
   display: flex;
