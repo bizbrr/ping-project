@@ -49,7 +49,7 @@
       <input type="password" placeholder="Mot de passe" name="mdp" id="password">
 
       <button class="button">Connexion</button>
-      <div style="font-size: 12px; margin-top: 20px; text-align: center;">Vous n'avez pas de compte ? <a href="signup.php">Inscrivez-vous</a></div>
+      <div style="font-size: 12px; text-align: center;">Vous n'avez pas de compte ? <a href="signup.php">Inscrivez-vous</a></div>
   </form>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
