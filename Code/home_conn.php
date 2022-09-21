@@ -13,6 +13,16 @@
     }
 </style>
 
+<?php
+$db = mysql_connect('localhost', 'root', 'root');
+mysql_query("set names utf8") or die (mysql_error()); //gestion de l'affichage des caractères spéciaux
+mysql_select_db('site_ping',$db); 
+$sql = 'SELECT * FROM subject';
+$resultat = mysql_query($sql) or die('Erreur '.mysql_error());
+?>
+
+
+
 <body>
     <!-- navbar -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +40,7 @@
                         <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
                     </ul>
                 </div>
+                <a href="logout.php">Déconnexion</a>
             </div>
         </nav>
     </header>
@@ -37,8 +48,15 @@
 <div class="tab">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
+            <div class="alert alert-success" role="alert">
+            <?php session_start();
+                if($_SESSION['username'] !== ""){
+                    $user = $_SESSION['username'];
+                    echo "Bonjour $user, vous êtes connecté"; }
+            ?>
+            </div>
                     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Sujet créés</h3>
-                    <button type="button" class="btn btn-primary" style="margin-bottom:20px;"><i class="fas fa-glasses"></i> Créer un nouveau sujet</button>
+                    <a href="subject_form.php"><button type="button" class="btn btn-primary" style="margin-bottom:20px;"><i class="fas fa-glasses"></i> Créer un nouveau sujet</button></a>
                     <div class="table-responsive tab-border">
                         <table class="table">
                             <thead>
@@ -51,36 +69,29 @@
                                 </tr>
                             </thead>
                             <tbody class="table-body">
+                            <?php while($data = mysql_fetch_array($resultat)) { 
+                                $sql2 = 'SELECT label FROM status WHERE id="'.$data['id-status'].'"';
+                                $resultat2 = mysql_query($sql2) or die('Erreur '.mysql_error());
+                                $data2 = mysql_fetch_array($resultat2)
+                                ?>
                                 <tr class="cell-1 bg-tab">
-                                    <td>13487</td>
-                                    <td>Hyperloop</td>
-                                    <td><span class="badge bg-success">Validé</span></td>
+                                    <td style="color:white"><?php echo $data['id']; ?></td>
+                                    <td style="color:white"><?php echo $data['title']; ?></td>
+                                    <?php if ($data2['label']=='Validé'){ ?>
+                                        <td><span class="badge bg-success"><?php echo $data2['label']; ?></span></td>
+                                    <?php } elseif ($data2['label']=='En attente'){ ?>
+                                        <td><span class="badge bg-info"><?php echo $data2['label']; ?></span></td>
+                                    <?php } else { ?>
+                                        <td><span class="badge bg-danger"><?php echo $data2['label']; ?></span></td>
+                                    <?php } ?>
                                     <td>
                                         <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                     </td>
-                                    <td>Today</td>
+                                    <td style="color:white">Today</td>
+                                    
                                 </tr>
-                                <tr class="cell-1 bg-tab">
-                                    <td>13453</td>
-                                    <td>AI</td>
-                                    <td><span class="badge bg-info">En attente</span></td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                    </td>
-                                    <td>Yesterday</td>
-                                </tr>
-                                <tr class="cell-1 bg-tab">
-                                    <td>13498</td>
-                                    <td>Starlink</td>
-                                    <td><span class="badge bg-danger">Refusé</span></td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary"><i class='far fa-edit'></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                    </td>
-                                    <td>May 12,2020</td>
-                                </tr>
+                            <?php } ?>
                             </tbody>
                         </table>
                     </div>

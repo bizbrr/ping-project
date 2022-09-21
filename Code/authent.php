@@ -35,20 +35,31 @@
         </nav>
     </header>
      <!--end navbar -->
-     <div class="background"> 
+    <div class="background"> 
 
-  </div>
-  <form>
+    </div>
+<?php if(isset($_GET['erreur'])) { 
+  if ($_GET['erreur']==1) { ?>
+            <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
+                Nom d'utilisateur ou mot de passe incorrect
+            </div>
+<?php } elseif ($_GET['erreur']==2) { ?>
+    <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
+                Veuillez saisir votre nom d'utilisateur et mot de passe
+    </div>
+<?php } } ?>
+
+  <form action="verif_user.php" method="POST">
       <h3>Connexion</h3>
       <h5>Accès tuteur</h5>
 
       <label for="username">Nom d'utilisateur</label>
-      <input type="text" placeholder="Nom d'utilisateur" id="username">
+      <input type="text" placeholder="Nom d'utilisateur" name="username" id="username">
 
       <label for="password">Mot de passe</label>
-      <input type="password" placeholder="Mot de passe" name="mdp" id="password">
+      <input type="password" placeholder="Mot de passe" name="password" id="password">
 
-      <button class="button">Connexion</button>
+      <button type="submit" class="button">Connexion</button>
       <div style="font-size: 12px; text-align: center;">Vous n'avez pas de compte ? <a href="signup.php">Inscrivez-vous</a></div>
   </form>
     <script src="/js/bootstrap.bundle.min.js"></script>
