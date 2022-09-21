@@ -8,6 +8,7 @@
     <link href="css/style2.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
     <link href="css/style_authent.css" rel="stylesheet">
+   <!-- --><link href="css/style_subject_form.css" rel="stylesheet"> 
   </head>
 
 <style> body{
@@ -36,26 +37,43 @@
     </header>
      <!--end navbar -->
 
-    <form style="height: 800px !important; width: 500px !important;">
-      <h3>Formulaire d'inscription</h3>
+    <form style="height: 900px !important; width: 500px !important; top: 65%;">
+      <h3>Création de nouveau sujet de projet</h3>
       <h5>Compte tuteur</h5>
 
-      <label for="email">Saisissez votre nom</label>
-      <input type="text" placeholder="Nom" name="name" id="name">
+      <label for="subject_title">Saisissez le titre du projet</label>
+      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input">
 
-      <label for="email">Saisissez votre prénom</label>
-      <input type="text" placeholder="Prénom" name="firstname" id="firstname">
+      <label for="subject_resume">Résumé du projet</label>
+      
+      <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input">
+      <!-- -->
+      <label class="labelbutton" for="contactChoice1">Ressource nécessaire pour le projet</label>
+      <input type="radio" class="radiobutton" id="contactChoice1" name="contact" value="email">
+      <label  class="labelcontent" for="contactChoice1">Une équipe</label>
 
-      <label for="email">Saisissez votre mail</label>
-      <input type="text" placeholder="Adresse E-mail" name="email" id="email">
+      <input type="radio" id="contactChoice2" name="contact" value="telephone">
+      <label class="labelcontent" for="contactChoice2">Deux équipes</label> 
 
-      <label for="username">Choisissez un nom d'utilisateur</label>
-      <input type="text" placeholder="Nom d'utilisateur" id="username">
+      <label for="avatar">Insérer une image :</label>
 
-      <label for="password">Choisissez un mot de passe</label>
-      <input type="password" placeholder="Mot de passe" name="mdp" id="password">
+      <input type="file"
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg">
 
-      <button class="button">Inscription</button>
+        <label for="avatar">Insérer un fichier :</label>
+
+      <input type="file"
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg">
+
+      <label class="labelbutton">Confidentiel</label> 
+      <label class="switch">
+        <input type="checkbox" id="slider">
+        <span class="slider round"></span>
+      </label>
+
+      <button class="button">Enregistrer mes modifications</button>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>

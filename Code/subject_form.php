@@ -1,22 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ConnexionAuth</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/home_conn.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
-    <link href="css/style_subject_form.css" rel="stylesheet">
-</head>
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/style_authent.css" rel="stylesheet">
+   <!-- --><link href="css/style_subject_form.css" rel="stylesheet"> 
+  </head>
+
 <style> body{
-    background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");
-    }
+    background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");}
 </style>
 
-<body>
-  <!-- Navbar-->
-  <div class="header">
+  <body>
+    <!-- navbar -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Navbar-->
+    <header class="header">
         <nav class="navbar navbar-expand-lg fixed-top py-3">
             <div class="container"><a href="index.php" class="navbar-brand text-uppercase font-weight-bold">PING ESIGELEC</a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
@@ -29,28 +34,47 @@
                 </div>
             </div>
         </nav>
-</div>
+    </header>
      <!--end navbar -->
 
-    <div style="position:relative;top:100px" class="container">
-        <div class="one">
-            Titre
-        </div>
-        <div class="two">
-            image
-        </div>
-        <div class="three">
-            Résumé
-        </div>
-        <div class="four">
-            status
-        </div>
-        <div class="five">
-            Uplod
-        </div>
-        <div class="six">
-            button (save & delete)
-        </div>
-    </div>
+    <form style="height: 900px !important; width: 500px !important; top: 65%;">
+      <h3>Création de nouveau sujet de projet</h3>
+      <h5>Compte tuteur</h5>
 
-</body>
+      <label for="subject_title">Saisissez le titre du projet</label>
+      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input">
+
+      <label for="subject_resume">Résumé du projet</label>
+      
+      <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input">
+      <!-- -->
+      <label class="labelbutton" for="contactChoice1">Ressource nécessaire pour le projet</label>
+      <input type="radio" class="radiobutton" id="contactChoice1" name="contact" value="email">
+      <label  class="labelcontent" for="contactChoice1">Une équipe</label>
+
+      <input type="radio" id="contactChoice2" name="contact" value="telephone">
+      <label class="labelcontent" for="contactChoice2">Deux équipes</label> 
+
+      <label for="avatar">Insérer une image :</label>
+
+      <input type="file"
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg">
+
+        <label for="avatar">Insérer un fichier :</label>
+
+      <input type="file"
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg">
+
+      <label class="labelbutton">Confidentiel</label> 
+      <label class="switch">
+        <input type="checkbox" id="slider">
+        <span class="slider round"></span>
+      </label>
+
+      <button class="button">Soumettre</button>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+  </body>
+</html>
