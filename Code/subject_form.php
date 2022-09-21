@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ConnexionAuth</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/home_conn.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
-    <link href="css/style_subject_form.css" rel="stylesheet">
-</head>
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/style_authent.css" rel="stylesheet">
+  </head>
+
 <style> body{
-    background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");
-    }
+    background-image: url("http://localhost/site_ping/images/background.jpg");}
 </style>
 
-<body>
-  <!-- Navbar-->
-  <div class="header">
+  <body>
+    <!-- navbar -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Navbar-->
+    <header class="header">
         <nav class="navbar navbar-expand-lg fixed-top py-3">
             <div class="container"><a href="index.php" class="navbar-brand text-uppercase font-weight-bold">PING ESIGELEC</a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
@@ -29,28 +33,24 @@
                 </div>
             </div>
         </nav>
-</div>
+    </header>
      <!--end navbar -->
 
-    <div style="position:relative;top:100px" class="container">
-        <div class="one">
-            Titre
-        </div>
-        <div class="two">
-            image
-        </div>
-        <div class="three">
-            Résumé
-        </div>
-        <div class="four">
-            status
-        </div>
-        <div class="five">
-            Uplod
-        </div>
-        <div class="six">
-            button (save & delete)
-        </div>
-    </div>
+    <form style="height: 590px !important; width: 500px !important;">
+      <h3>Formulaire d'inscription</h3>
+      <h5>Compte tuteur</h5>
 
-</body>
+      <label for="email">Saisissez votre mail</label>
+      <input type="text" placeholder="Adresse E-mail" name="email" id="email">
+
+      <label for="username">Choisissez un nom d'utilisateur</label>
+      <input type="text" placeholder="Nom d'utilisateur" id="username">
+
+      <label for="password">Choisissez un mot de passe</label>
+      <input type="password" placeholder="Mot de passe" name="mdp" id="password">
+
+      <button class="button">Inscription</button>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+  </body>
+</html>
