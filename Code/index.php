@@ -10,7 +10,7 @@
 
 
 <style> body{
-    background-image: url("http://localhost/site_ping/images/background.jpg");}
+    background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");}
 </style>
 
 <!-- Navbar-->

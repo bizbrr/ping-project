@@ -11,7 +11,7 @@
   </head>
 
 <style> body{
-    background-image: url("http://localhost/site_ping/images/background.jpg");}
+    background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");}
 </style>
 
   <body>
@@ -36,9 +36,15 @@
     </header>
      <!--end navbar -->
 
-    <form style="height: 590px !important; width: 500px !important;">
+    <form style="height: 800px !important; width: 500px !important;">
       <h3>Formulaire d'inscription</h3>
       <h5>Compte tuteur</h5>
+
+      <label for="email">Saisissez votre nom</label>
+      <input type="text" placeholder="Nom" name="name" id="name">
+
+      <label for="email">Saisissez votre prénom</label>
+      <input type="text" placeholder="Prénom" name="firstname" id="firstname">
 
       <label for="email">Saisissez votre mail</label>
       <input type="text" placeholder="Adresse E-mail" name="email" id="email">
