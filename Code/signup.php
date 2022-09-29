@@ -6,7 +6,7 @@
     <title>ConnexionAuth</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
-    <link href="css/form.css" rel="stylesheet">
+    <link type="text/css" href="css/form.css" rel="stylesheet">
     <link href="css/style_authent.css" rel="stylesheet">
   </head>
 
@@ -36,26 +36,26 @@
     </header>
      <!--end navbar -->
 
-    <form style="height: 800px !important; width: 500px !important;">
+    <form style="height: 800px !important; width: 500px !important;" action="create_user.php" method="POST">
       <h3>Formulaire d'inscription</h3>
       <h5>Compte tuteur</h5>
 
       <label for="email">Saisissez votre nom</label>
-      <input type="text" placeholder="Nom" name="name" id="name">
+      <input type="text" placeholder="Nom" name="name" id="name" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <label for="email">Saisissez votre prénom</label>
-      <input type="text" placeholder="Prénom" name="firstname" id="firstname">
+      <input type="text" placeholder="Prénom" name="firstname" id="firstname" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <label for="email">Saisissez votre mail</label>
-      <input type="text" placeholder="Adresse E-mail" name="email" id="email">
+      <input type="text" placeholder="Adresse E-mail" name="email" id="email" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <label for="username">Choisissez un nom d'utilisateur</label>
-      <input type="text" placeholder="Nom d'utilisateur" id="username">
+      <input type="text" placeholder="Nom d'utilisateur" name="username" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <label for="password">Choisissez un mot de passe</label>
-      <input type="password" placeholder="Mot de passe" name="mdp" id="password">
+      <input type="password" placeholder="Mot de passe" name="mdp" id="password" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
-      <button class="button">Inscription</button>
+      <button class="button" style="margin-top:25px">Inscription</button>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>

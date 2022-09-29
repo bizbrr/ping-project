@@ -20,10 +20,13 @@ if(isset($_POST['username']) && isset($_POST['password']))
         $exec_requete = mysql_query($requete);
         $reponse      = mysql_fetch_array($exec_requete);
         $count = $reponse['count(*)'];
-        if($count!=0) // nom d'utilisateur et mot de passe correctes
+        $username = $_POST['username'];
+        if($count!=0) // nom d'utilisateur et mot de passe corrects
         {
            $_SESSION['username'] = $username;
            header('Location: home_conn.php');
+
+           
         }
         else
         {

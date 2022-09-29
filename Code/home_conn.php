@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/home_conn.css" rel="stylesheet">
+    <link href="css/home_conn.css" rel="stylesheet" type="text/css">
     <link href="css/style2.css" rel="stylesheet">
 </head>
 <style> body{
@@ -49,10 +49,11 @@ $resultat = mysql_query($sql) or die('Erreur '.mysql_error());
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
             <div class="alert alert-success" role="alert">
-            <?php session_start();
-                if($_SESSION['username'] !== ""){
-                    $user = $_SESSION['username'];
-                    echo "Bonjour $user, vous êtes connecté"; }
+            <?php
+                    session_start();
+                    if(isset($_SESSION["username"])){
+                    echo "Bonjour ".$_SESSION["username"].", vous êtes connecté"; 
+                                
             ?>
             </div>
                     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Sujet créés</h3>
@@ -108,3 +109,7 @@ $resultat = mysql_query($sql) or die('Erreur '.mysql_error());
 
 </body>
 </html>
+<?php } else {
+                header('Location: authent.php?erreur=3');
+            }  
+?>

@@ -6,7 +6,7 @@
     <title>ConnexionAuth</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
-    <link href="css/form.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet" type="text/css">
     <link href="css/style_authent.css" rel="stylesheet">
   </head>
 
@@ -47,17 +47,21 @@
     <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
                 Veuillez saisir votre nom d'utilisateur et mot de passe
     </div>
-<?php } } ?>
+<?php } elseif ($_GET['erreur']==3) { ?>
+    <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
+                Vous devez vous connecter pour accéder à cette page !
+    </div>
+  <?php } } ?>
 
   <form action="verif_user.php" method="POST">
       <h3>Connexion</h3>
       <h5>Accès tuteur</h5>
 
       <label for="username">Nom d'utilisateur</label>
-      <input type="text" placeholder="Nom d'utilisateur" name="username" id="username">
+      <input type="text" placeholder="Nom d'utilisateur" name="username" id="username" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <label for="password">Mot de passe</label>
-      <input type="password" placeholder="Mot de passe" name="password" id="password">
+      <input type="password" placeholder="Mot de passe" name="password" id="password" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <button type="submit" class="button">Connexion</button>
       <div style="font-size: 12px; text-align: center;">Vous n'avez pas de compte ? <a href="signup.php">Inscrivez-vous</a></div>
