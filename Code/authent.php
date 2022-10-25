@@ -10,8 +10,10 @@
     <link href="css/style_authent.css" rel="stylesheet">
   </head>
 
-<style> body{
-    background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");}
+<style> 
+  body{
+    background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");
+  }
 </style>
 
   <body>
@@ -38,6 +40,22 @@
     <div class="background"> 
 
     </div>
+
+    <
+    <?php if(isset($_GET['confirm'])) { 
+      if ($_GET['confirm']==1) { ?>
+        <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-success" role="alert">
+          <?php 
+                session_start();
+                if(isset($_SESSION["username"])){
+                echo "Bonjour, vous pouvez dès à présent vous connecter avec le nom d'utilisateur suivant : ".$_SESSION["username"]; 
+                }
+          ?>
+        </div>
+    <?php } }?>           
+
+    
+
 <?php if(isset($_GET['erreur'])) { 
   if ($_GET['erreur']==1) { ?>
             <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">

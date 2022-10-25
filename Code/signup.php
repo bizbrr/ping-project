@@ -36,26 +36,42 @@
     </header>
      <!--end navbar -->
 
-    <form style="height: 800px !important; width: 500px !important;" action="create_user.php" method="POST">
+     <?php if(isset($_GET['erreur'])) { 
+  if ($_GET['erreur']==1) { ?>
+            <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
+            Assurez-vous que tous les champs sont remplis
+            </div>
+<?php }} ?>
+
+    <form style="height: 1160px !important; width: 500px !important;" action="create_user.php" method="POST">
       <h3>Formulaire d'inscription</h3>
       <h5>Compte tuteur</h5>
 
-      <label for="email">Saisissez votre nom</label>
+      <label for="email">Saisissez votre nom *</label>
       <input type="text" placeholder="Nom" name="name" id="name" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
-      <label for="email">Saisissez votre prénom</label>
+      <label for="email">Saisissez votre prénom *</label>
       <input type="text" placeholder="Prénom" name="firstname" id="firstname" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
-      <label for="email">Saisissez votre mail</label>
+      <label for="company">Saisissez le nom de votre entrepride *</label>
+      <input type="text" placeholder="Entreprise" name="company" id="company" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
+
+      <label for="poste">Saisissez votre poste au sein de l'entreprise</label>
+      <input type="text" placeholder="Poste" name="poste" id="poste" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
+
+      <label for="tutored_student">Saisissez le nom l'étudiant tutoré *</label>
+      <input type="text" placeholder="Etudiant.e tutoré.e" name="tutored_student" id="tutored_student" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
+
+      <label for="email">Saisissez votre mail *</label>
       <input type="text" placeholder="Adresse E-mail" name="email" id="email" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
-      <label for="username">Choisissez un nom d'utilisateur</label>
+      <label for="username">Choisissez un nom d'utilisateur *</label>
       <input type="text" placeholder="Nom d'utilisateur" name="username" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
-      <label for="password">Choisissez un mot de passe</label>
+      <label for="password">Choisissez un mot de passe *</label>
       <input type="password" placeholder="Mot de passe" name="mdp" id="password" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
-      <button class="button" style="margin-top:25px">Inscription</button>
+      <button class="button" style="margin-top:25px">M'inscrire</button>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>
