@@ -39,7 +39,14 @@
      <?php if(isset($_GET['erreur'])) { 
   if ($_GET['erreur']==1) { ?>
             <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
-            Assurez-vous que tous les champs sont remplis
+            Assurez-vous que tous les champs obligatoires (*) sont bien remplis.
+            </div>
+<?php }} ?>
+
+<?php if(isset($_GET['erreur'])) { 
+  if ($_GET['erreur']==2) { ?>
+            <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
+            Un utilisateur est déjà associé à cet e-mail ou nom d'utilisateur. Veuillez utiliser un autre.
             </div>
 <?php }} ?>
 

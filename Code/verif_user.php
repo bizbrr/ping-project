@@ -3,10 +3,13 @@ session_start();
 if(isset($_POST['username']) && isset($_POST['password']))
 {
     // connexion à la base de données
-    $db = mysql_connect('localhost', 'root', 'root');
-    mysql_query("set names utf8") or die (mysql_error()); //gestion de l'affichage des caractères spéciaux
-    mysql_select_db('site_ping',$db)
-           or die('could not connect to database');
+    $db = mysqli_connect('localhost', 'root', 'root','site_ping');
+    mysqli_query($db,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
+    
+    //On vérifie la connexion
+    if(!$db){
+      die('Erreur : ' .mysqli_connect_error());
+  }
     
     // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS
@@ -15,18 +18,26 @@ if(isset($_POST['username']) && isset($_POST['password']))
 
     if($_POST['username'] !== "" && $_POST['password'] !== "")
     {
+        //vérifie les infos de longin
         $requete = 'SELECT count(*) FROM authent_tutor where 
               user_name = "'.$_POST['username'].'" and password = "'.$_POST['password'].'"';
-        $exec_requete = mysql_query($requete);
-        $reponse      = mysql_fetch_array($exec_requete);
+        $exec_requete = mysqli_query($db,$requete);
+        $reponse      = mysqli_fetch_array($exec_requete);
         $count = $reponse['count(*)'];
         $username = $_POST['username'];
+
         if($count!=0) // nom d'utilisateur et mot de passe corrects
         {
-           $_SESSION['username'] = $username;
-           header('Location: home_conn.php');
+            //récupère l'id-tutor
+            $requete_id_tutor = 'SELECT id_tutor FROM authent_tutor where 
+            user_name = "'.$_POST['username'].'" and password = "'.$_POST['password'].'"';
+            $exec_requete_id_tutor = mysqli_query($db,$requete_id_tutor);
+            $reponse_requete_id_tutor     = mysqli_fetch_array($exec_requete_id_tutor);
+            $id_tutor = $reponse_requete_id_tutor['id_tutor'];
 
-           
+            $_SESSION['username'] = $username;
+            $_SESSION['id_tutor'] = $id_tutor;
+            header('Location: home_conn.php');        
         }
         else
         {
@@ -42,5 +53,5 @@ else
 {
    header('Location: authent.php');
 }
-mysql_close($db); // fermer la connexion
+mysqli_close($db); // fermer la connexion
 ?>
