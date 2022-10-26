@@ -14,11 +14,19 @@
 </style>
 
 <?php
-$db = mysql_connect('localhost', 'root', 'root');
-mysql_query("set names utf8") or die (mysql_error()); //gestion de l'affichage des caractères spéciaux
-mysql_select_db('site_ping',$db); 
-$sql = 'SELECT * FROM subject';
-$resultat = mysql_query($sql) or die('Erreur '.mysql_error());
+session_start();
+$id_tutor = $_SESSION["id_tutor"];
+
+$db = mysqli_connect('localhost', 'root', 'root','site_ping');
+mysqli_query($db,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
+
+$sql = "SELECT * FROM subject WHERE id_tutor = '$id_tutor'"; //test, il faudre recup l'id du tuteur
+$resultat = mysqli_query($db,$sql) or die('Erreur '.mysqli_connect_error());
+
+//On vérifie la connexion
+if(!$db){
+    die('Erreur : ' .mysqli_connect_error());
+}
 ?>
 
 
@@ -37,7 +45,7 @@ $resultat = mysql_query($sql) or die('Erreur '.mysql_error());
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.php" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
-                        <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
+                        <!-- <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li> -->
                     </ul>
                 </div>
                 <a href="logout.php">Déconnexion</a>
@@ -50,9 +58,9 @@ $resultat = mysql_query($sql) or die('Erreur '.mysql_error());
             <div class="col-md-10">
             <div class="alert alert-success" role="alert">
             <?php
-                    session_start();
                     if(isset($_SESSION["username"])){
                     echo "Bonjour ".$_SESSION["username"].", vous êtes connecté"; 
+                    session_destroy();
                                 
             ?>
             </div>
@@ -70,10 +78,10 @@ $resultat = mysql_query($sql) or die('Erreur '.mysql_error());
                                 </tr>
                             </thead>
                             <tbody class="table-body">
-                            <?php while($data = mysql_fetch_array($resultat)) { 
+                            <?php while($data = mysqli_fetch_array($resultat)) { 
                                 $sql2 = 'SELECT label FROM status WHERE id="'.$data['id-status'].'"';
-                                $resultat2 = mysql_query($sql2) or die('Erreur '.mysql_error());
-                                $data2 = mysql_fetch_array($resultat2)
+                                $resultat2 = mysqli_query($db,$sql2) or die('Erreur '.mysqli_connect_error());
+                                $data2 = mysqli_fetch_array($resultat2)
                                 ?>
                                 <tr class="cell-1 bg-tab">
                                     <td style="color:white"><?php echo $data['id']; ?></td>
