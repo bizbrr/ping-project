@@ -37,10 +37,10 @@
     </header>
      <!--end navbar -->
 
-    <form style="height: 960px !important; width: 500px !important; top: 65%;">
+    <form style="height: 650px !important; width: 1000px !important; top: 65%;">
       <h3>Création de nouveau sujet de projet</h3>
       <h5>Compte tuteur</h5>
-
+<div style="float:left;width: 450px !important;">
       <label for="subject_title">Saisissez le titre du projet</label>
       <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input">
 
@@ -49,12 +49,15 @@
       <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input">
       <!-- -->
       <label class="labelbutton" for="contactChoice1">Ressource nécessaire pour le projet</label>
+
       <input type="radio" class="radiobutton" id="contactChoice1" name="contact" value="email">
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
 
       <input type="radio" id="contactChoice2" name="contact" value="telephone">
       <label class="labelcontent" for="contactChoice2">Deux équipes</label> 
 
+</div>
+<div style="float:right;width: 450px !important;">
       <label for="avatar">Insérer une image :</label>
 
       <input type="file"
@@ -73,7 +76,9 @@
         <span class="slider round"></span>
       </label>
 
+</div>
       <button class="button">Soumettre</button>
+</form>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>

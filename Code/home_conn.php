@@ -86,7 +86,7 @@ $resultat = mysql_query($sql) or die('Erreur '.mysql_error());
                                         <td><span class="badge bg-danger"><?php echo $data2['label']; ?></span></td>
                                     <?php } ?>
                                     <td>
-                                        <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                        <button type="button" class="btn btn-primary" onclick=redirectionEdit(<?php echo json_encode($data['title']); ?>)><i class="fas fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                     </td>
                                     <td style="color:white">Today</td>
@@ -113,3 +113,9 @@ $resultat = mysql_query($sql) or die('Erreur '.mysql_error());
                 header('Location: authent.php?erreur=3');
             }  
 ?>
+
+<script>
+function redirectionEdit(sujet){
+    window.location = 'http://localhost/ping-web-site-zaibet-serine-bizandry/Code/subject_modif.php?sujet='+sujet
+}
+</script>

@@ -1,3 +1,4 @@
+<?php $sujet = $_GET['sujet']; ?>
 <!doctype html>
 <html lang="fr">
   <head>
@@ -42,7 +43,7 @@
       <h5>Compte tuteur</h5>
 
       <label for="subject_title">Saisissez le titre du projet</label>
-      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input">
+      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input" value=<?php echo $sujet; ?>>
 
       <label for="subject_resume">Résumé du projet</label>
       
@@ -64,17 +65,43 @@
         <label for="avatar">Insérer un fichier :</label>
 
       <input type="file"
-        id="avatar" name="avatar"
+        id="file" name="file"
         accept="image/png, image/jpeg">
 
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">
-        <input type="checkbox" id="slider">
+        <input type="checkbox" id="slider" name="slider">
         <span class="slider round"></span>
       </label>
 
-      <button class="button">Enregistrer mes modifications</button>
+      <button class="button" type="submit">Enregistrer mes modifications</button>
+</form>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>
 </html>
+
+<?php
+//infos de log server pour conn
+$servername = 'localhost';
+$db_username = 'root';
+$db_passord = 'root';
+// connexion à la base de données
+$conn = mysqli_connect($servername, $db_username, $db_passord,"site_ping");
+
+//On vérifie la connexion
+if(!$conn){
+    die('Erreur : ' .mysqli_connect_error());
+}
+
+mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
+
+if !empty($_POST['sujet']){
+
+    $requete = "UPDATE subject set image=$_POST['avatar'],doc_pdf=$_POST['file'],confidentiality=$_POST['slider'] where subject='.$sujet.'";
+    $exec_requete = mysqli_query($conn, $requete);
+    if(!$exec_requete){
+        die('Erreur : ' .mysqli_connect_error());
+    }
+}
+?>
