@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ConnexionAuth</title>
+    <title>Modification de sujet</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
@@ -49,12 +49,12 @@
       
       <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input">
       <!-- -->
-      <label class="labelbutton" for="contactChoice1">Ressource nécessaire pour le projet</label>
-      <input type="radio" class="radiobutton" id="contactChoice1" name="contact" value="email">
+      <label class="labelbutton" for="teamNbChoice1">Ressource nécessaire pour le projet</label>
+      <input type="radio" class="radiobutton" id="teamNbChoice1" name="team_nb" value="1">
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
 
-      <input type="radio" id="contactChoice2" name="contact" value="telephone">
-      <label class="labelcontent" for="contactChoice2">Deux équipes</label> 
+      <input type="radio" id="teamNbChoice2" name="team_nb" value="2">
+      <label class="labelcontent" for="teamNbChoice2">Deux équipes</label> 
 
       <label for="avatar">Insérer une image :</label>
 
@@ -96,7 +96,7 @@ if(!$conn){
 
 mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
-if !empty($_POST['sujet']){
+if (!empty($_POST['sujet'])){
 
     $requete = "UPDATE subject set image=$_POST['avatar'],doc_pdf=$_POST['file'],confidentiality=$_POST['slider'] where subject='.$sujet.'";
     $exec_requete = mysqli_query($conn, $requete);

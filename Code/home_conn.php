@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Espace tuteur - PING Esigelec</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/home_conn.css" rel="stylesheet" type="text/css">
@@ -20,16 +21,15 @@ $id_tutor = $_SESSION["id_tutor"];
 $db = mysqli_connect('localhost', 'root', 'root','site_ping');
 mysqli_query($db,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
-$sql = "SELECT * FROM subject WHERE id_tutor = '$id_tutor'"; //test, il faudre recup l'id du tuteur
-$resultat = mysqli_query($db,$sql) or die('Erreur '.mysqli_connect_error());
 
 //On vérifie la connexion
 if(!$db){
     die('Erreur : ' .mysqli_connect_error());
 }
+
+$sql = "SELECT * FROM subject WHERE id_tutor = '$id_tutor'";
+$resultat = mysqli_query($db,$sql) or die('Erreur '.mysqli_connect_error());
 ?>
-
-
 
 <body>
     <!-- navbar -->
@@ -63,6 +63,9 @@ if(!$db){
                     session_destroy();
                                 
             ?>
+            <?php
+            $_SESSION['id_tutor'] = $id_tutor;
+            ?>
             </div>
                     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Sujet créés</h3>
                     <a href="subject_form.php"><button type="button" class="btn btn-primary" style="margin-bottom:20px;"><i class="fas fa-glasses"></i> Créer un nouveau sujet</button></a>
@@ -79,7 +82,7 @@ if(!$db){
                             </thead>
                             <tbody class="table-body">
                             <?php while($data = mysqli_fetch_array($resultat)) { 
-                                $sql2 = 'SELECT label FROM status WHERE id="'.$data['id-status'].'"';
+                                $sql2 = 'SELECT label FROM status WHERE id="'.$data['id_status'].'"';
                                 $resultat2 = mysqli_query($db,$sql2) or die('Erreur '.mysqli_connect_error());
                                 $data2 = mysqli_fetch_array($resultat2)
                                 ?>
@@ -97,7 +100,7 @@ if(!$db){
                                         <button type="button" class="btn btn-primary" onclick=redirectionEdit(<?php echo json_encode($data['title']); ?>)><i class="fas fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                     </td>
-                                    <td style="color:white">Today</td>
+                                    <td style="color:white"><?php echo $data['creation_date']; ?></td>
                                     
                                 </tr>
                             <?php } ?>

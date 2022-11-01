@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ConnexionAuth</title>
+    <title>📂 Nouveau sujet</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
@@ -29,7 +29,7 @@
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.php" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
-                        <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
+                        <!-- <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -37,7 +37,20 @@
     </header>
      <!--end navbar -->
 
-    <form style="height: 650px !important; width: 1000px !important; top: 65%;">
+     <?php if(isset($_GET['erreur'])) { 
+  if ($_GET['erreur']==1) { ?>
+            <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
+            Assurez-vous que tous les champs obligatoires (*) sont bien remplis.
+            </div>
+<?php }} ?>
+
+<?php
+session_start();
+$id_tutor = $_SESSION["id_tutor"];
+echo $id_tutor;
+?>
+
+<form style="height: 650px !important; width: 1000px !important; top: 65%;"action="create_subject.php" method="POST">
       <h3>Création de nouveau sujet de projet</h3>
       <h5>Compte tuteur</h5>
 <div style="float:left;width: 450px !important;">
@@ -46,14 +59,14 @@
 
       <label for="subject_resume">Résumé du projet</label>
       
-      <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input">
+      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input">
       <!-- -->
       <label class="labelbutton" for="contactChoice1">Ressource nécessaire pour le projet</label>
 
-      <input type="radio" class="radiobutton" id="contactChoice1" name="contact" value="email">
+      <input type="radio" class="radiobutton" id="contactChoice1" checked="checked" name="team_nb" value="1">
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
 
-      <input type="radio" id="contactChoice2" name="contact" value="telephone">
+      <input type="radio" id="contactChoice2" name="team_nb" value="2">
       <label class="labelcontent" for="contactChoice2">Deux équipes</label> 
 
 </div>
@@ -61,18 +74,18 @@
       <label for="avatar">Insérer une image :</label>
 
       <input type="file"
-        id="avatar" name="avatar"
+        id="image" name="image"
         accept="image/png, image/jpeg">
 
         <label for="avatar">Insérer un fichier :</label>
 
       <input type="file"
-        id="avatar" name="avatar"
+        id="file" name="file"
         accept="image/png, image/jpeg">
 
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">
-        <input type="checkbox" id="slider">
+        <input type="checkbox" id="slider" name="slider" value='true'>
         <span class="slider round"></span>
       </label>
 

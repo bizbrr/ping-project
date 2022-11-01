@@ -20,19 +20,19 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
     {
 
     // connexion à la base de données
-    $conn = mysqli_connect($servername, $db_username, $db_passord,"site_ping");
+    $db = mysqli_connect($servername, $db_username, $db_passord,"site_ping");
 
     //On vérifie la connexion
-    if(!$conn){
+    if(!$db){
         die('Erreur : ' .mysqli_connect_error());
     }
 
-    mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
+    mysqli_query($db,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
 
     //Vérifie que l'utilisateur n'existe pas encore
     $requete_verif_unique = "SELECT count(*) FROM authent_tutor WHERE email = '$mail' OR user_name = '$username'";
-    $exec_requete_verif_unique = mysqli_query($conn, $requete_verif_unique);
+    $exec_requete_verif_unique = mysqli_query($db, $requete_verif_unique);
     $reponse = mysqli_fetch_array($exec_requete_verif_unique);
     $count = $reponse['count(*)'];
     if(!$exec_requete_verif_unique){
@@ -48,14 +48,14 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
         //ecriture à la table tutor
         $requete1 = "INSERT INTO tutor (nom, prenom, entreprise, poste, tutored_student) 
                     VALUES ('$name','$firstname','$company','$poste','$tutored_student')";
-        $exec_requete1 = mysqli_query($conn, $requete1);
+        $exec_requete1 = mysqli_query($db, $requete1);
         if(!$exec_requete1){
             die('Erreur : ' .mysqli_connect_error());
         }
 
         //recupère l'id du tutor précedemment ajouté
         $requete2 = "SELECT id FROM tutor WHERE nom = '$name' and prenom = '$firstname' and entreprise = '$company' and poste = '$poste' and tutored_student = '$tutored_student'";
-        $exec_requete2 = mysqli_query($conn, $requete2);
+        $exec_requete2 = mysqli_query($db, $requete2);
         $reponse = mysqli_fetch_array($exec_requete2);
         if(!$exec_requete2){
             die('Erreur : ' .mysqli_connect_error());
@@ -63,7 +63,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
 
         //ecriture à la table authent_tutor
         $requete3 = "INSERT INTO authent_tutor (id_tutor, email, user_name, password) VALUES ('$reponse[0]', '$mail','$username','$password')";
-        $exec_requete3 = mysqli_query($conn, $requete3);
+        $exec_requete3 = mysqli_query($db, $requete3);
         if(!$exec_requete3){
             die('Erreur : ' .mysqli_connect_error());
         }
@@ -77,5 +77,5 @@ else
 {
     header('Location: signup.php?erreur=1'); // Veuillez compléter tout les champs
 }
-mysqli_close($conn);
+mysqli_close($db);
 ?>
