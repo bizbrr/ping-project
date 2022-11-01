@@ -29,7 +29,6 @@ if(isset($username) && isset($password))
         if(!$exec_requete_hash){
             die('Erreur : ' .mysqli_error($db));
         }
-        echo var_dump($reponse_hash[0]); //test
 
         //vérifie les infos de longin
         $requete = "SELECT count(*) FROM authent_tutor where 
@@ -39,13 +38,11 @@ if(isset($username) && isset($password))
         $count = $reponse['count(*)'];
         $username = $username;
 
-        echo var_dump(password_verify($password,$reponse_hash[0])); //test
-
         if($count !=0 && password_verify($password,$reponse_hash[0])==true) // nom d'utilisateur et mot de passe corrects
         {
             //récupère l'id-tutor
             $requete_id_tutor = "SELECT id_tutor FROM authent_tutor where 
-            user_name = '$username' and password = '$hashed_password'";
+            user_name = '$username' and password = '$reponse_hash[0]'";
             $exec_requete_id_tutor = mysqli_query($db,$requete_id_tutor);
             $reponse_requete_id_tutor     = mysqli_fetch_array($exec_requete_id_tutor);
             $id_tutor = $reponse_requete_id_tutor['id_tutor'];
