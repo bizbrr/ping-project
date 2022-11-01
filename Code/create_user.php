@@ -2,7 +2,7 @@
 //infos table authent_tutor
 $username = $_POST['username'];
 $mail = $_POST['email'];
-$password = $_POST['mdp'];
+$password = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
 //infos table tutor
 $name = $_POST['name'];
@@ -36,7 +36,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
     $reponse = mysqli_fetch_array($exec_requete_verif_unique);
     $count = $reponse['count(*)'];
     if(!$exec_requete_verif_unique){
-        die('Erreur : ' .mysqli_connect_error());
+        die('Erreur : ' .mysqli_error($db));
     }
 
     if($count!=0) // nom d'utilisateur et mot de passe corrects

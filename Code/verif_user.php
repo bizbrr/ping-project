@@ -1,6 +1,10 @@
 <?php
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
 session_start();
-if(isset($_POST['username']) && isset($_POST['password']))
+if(isset($username) && isset($password))
 {
     // connexion à la base de données
     $db = mysqli_connect('localhost', 'root', 'root','site_ping');
@@ -13,24 +17,35 @@ if(isset($_POST['username']) && isset($_POST['password']))
     
     // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS
-    //$username = mysql_real_escape_string($db,htmlspecialchars($_POST['username'])); 
-    //$password = mysql_real_escape_string($db,htmlspecialchars($_POST['password']));
+    //$username = mysql_real_escape_string($db,htmlspecialchars($username)); 
+    //$password = mysql_real_escape_string($db,htmlspecialchars($password));
 
-    if($_POST['username'] !== "" && $_POST['password'] !== "")
+    if($username !== "" && $password !== "")
     {
+        // Récupère la clé de hachage
+        $requete_hash = "SELECT password FROM authent_tutor where user_name = '$username'";
+        $exec_requete_hash = mysqli_query($db,$requete_hash);
+        $reponse_hash      = mysqli_fetch_array($exec_requete_hash);
+        if(!$exec_requete_hash){
+            die('Erreur : ' .mysqli_error($db));
+        }
+        echo var_dump($reponse_hash[0]); //test
+
         //vérifie les infos de longin
-        $requete = 'SELECT count(*) FROM authent_tutor where 
-              user_name = "'.$_POST['username'].'" and password = "'.$_POST['password'].'"';
+        $requete = "SELECT count(*) FROM authent_tutor where 
+              user_name = '$username'";
         $exec_requete = mysqli_query($db,$requete);
         $reponse      = mysqli_fetch_array($exec_requete);
         $count = $reponse['count(*)'];
-        $username = $_POST['username'];
+        $username = $username;
 
-        if($count!=0) // nom d'utilisateur et mot de passe corrects
+        echo var_dump(password_verify($password,$reponse_hash[0])); //test
+
+        if($count !=0 && password_verify($password,$reponse_hash[0])==true) // nom d'utilisateur et mot de passe corrects
         {
             //récupère l'id-tutor
-            $requete_id_tutor = 'SELECT id_tutor FROM authent_tutor where 
-            user_name = "'.$_POST['username'].'" and password = "'.$_POST['password'].'"';
+            $requete_id_tutor = "SELECT id_tutor FROM authent_tutor where 
+            user_name = '$username' and password = '$hashed_password'";
             $exec_requete_id_tutor = mysqli_query($db,$requete_id_tutor);
             $reponse_requete_id_tutor     = mysqli_fetch_array($exec_requete_id_tutor);
             $id_tutor = $reponse_requete_id_tutor['id_tutor'];
@@ -41,7 +56,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
         }
         else
         {
-           header('Location: authent.php?erreur=1'); // utilisateur ou mot de passe incorrect
+           //header('Location: authent.php?erreur=1'); // utilisateur ou mot de passe incorrect
         }
     }
     else
