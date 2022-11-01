@@ -59,8 +59,7 @@ $resultat = mysqli_query($db,$sql) or die('Erreur '.mysqli_connect_error());
             <div class="alert alert-success" role="alert">
             <?php
                     if(isset($_SESSION["username"])){
-                    echo "Bonjour ".$_SESSION["username"].", vous êtes connecté"; 
-                    session_destroy();
+                    echo "Bonjour ".$_SESSION["username"].", vous êtes connecté";
                                 
             ?>
             <?php
