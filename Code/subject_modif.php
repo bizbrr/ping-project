@@ -1,10 +1,13 @@
-<?php $sujet = $_GET['sujet']; ?>
+<?php if (isset($_GET['titre_sujet'])){
+  $sujet = $_GET['titre_sujet'];
+ } 
+ include_once "select_form.php"; ?>
 <!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modification de sujet</title>
+    <title>ConnexionAuth</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
@@ -38,70 +41,55 @@
     </header>
      <!--end navbar -->
 
-    <form style="height: 900px !important; width: 500px !important; top: 65%;">
-      <h3>Création de nouveau sujet de projet</h3>
+    <form style="height: 640px !important; width: 1000px !important; top: 65%;" action="update_form.php">
+      <h3>Modifier les informations du projet</h3>
       <h5>Compte tuteur</h5>
-
-      <label for="subject_title">Saisissez le titre du projet</label>
+      <div style="float:left;width: 450px !important;">
+      <label for="subject_title">Saisissez le titre du sujet</label>
       <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input" value=<?php echo $sujet; ?>>
 
       <label for="subject_resume">Résumé du projet</label>
       
       <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input">
       <!-- -->
-      <label class="labelbutton" for="teamNbChoice1">Ressource nécessaire pour le projet</label>
-      <input type="radio" class="radiobutton" id="teamNbChoice1" name="team_nb" value="1">
+      <label class="labelbutton">Ressource nécessaire pour le projet</label>
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
-
-      <input type="radio" id="teamNbChoice2" name="team_nb" value="2">
-      <label class="labelcontent" for="teamNbChoice2">Deux équipes</label> 
-
+      <?php if($equipe==1){ ?>
+              <input type="radio" name="equipe" id="contactChoice1" value=1 checked/>
+      <?php } else { ?>
+              <input type="radio" name="equipe" id="contactChoice1" value=1/>
+      <?php } ?>
+      <label class="labelcontent" for="contactChoice2">Deux équipes</label>
+      <?php if($equipe==2){ ?>
+              <input type="radio" name="equipe" id="contactChoice2" value=2 checked/>
+      <?php } else { ?>
+              <input type="radio" name="equipe" id="contactChoice2" value=2/>
+      <?php } ?>
+</div>
+<div style="float:right;width: 450px !important;">
       <label for="avatar">Insérer une image :</label>
 
       <input type="file"
         id="avatar" name="avatar"
-        accept="image/png, image/jpeg">
+        accept="image/png, image/jpeg" value="<?php echo $img; ?>">
 
         <label for="avatar">Insérer un fichier :</label>
 
-      <input type="file"
-        id="file" name="file"
-        accept="image/png, image/jpeg">
-
+      <input type="file" id="file" name="pdf" accept="application/pdf" value="<?php echo $pdf; ?>">
+      </input>
+      
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">
-        <input type="checkbox" id="slider" name="slider">
+        <?php if ($confidentiality==1){ ?>
+        <input type="checkbox" id="slider" name="slider" value=1 checked>
+      <?php } else { ?>
+        <input type="checkbox" id="slider" name="slider" value=1><?php } ?>
         <span class="slider round"></span>
       </label>
-
+</div>
       <button class="button" type="submit">Enregistrer mes modifications</button>
 </form>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>
 </html>
-
-<?php
-//infos de log server pour conn
-$servername = 'localhost';
-$db_username = 'root';
-$db_passord = 'root';
-// connexion à la base de données
-$conn = mysqli_connect($servername, $db_username, $db_passord,"site_ping");
-
-//On vérifie la connexion
-if(!$conn){
-    die('Erreur : ' .mysqli_connect_error());
-}
-
-mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
-
-if (!empty($_POST['sujet'])){
-
-    $requete = "UPDATE subject set image=$_POST['avatar'],doc_pdf=$_POST['file'],confidentiality=$_POST['slider'] where subject='.$sujet.'";
-    $exec_requete = mysqli_query($conn, $requete);
-    if(!$exec_requete){
-        die('Erreur : ' .mysqli_connect_error());
-    }
-}
-?>
