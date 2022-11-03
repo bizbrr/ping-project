@@ -108,7 +108,7 @@ if(!$db){
                                         <button type="button" class="btn btn-primary" onclick=redirectionEdit(<?php echo json_encode($data['id']); ?>)><i class="fas fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger" onclick=redirectionDelete(<?php echo json_encode($data['id']); ?>)><i class="far fa-trash-alt"></i></button>
                                     </td>
-                                    <td style="color:white">Today</td>
+                                    <td style="color:white"><?php echo $data['date']; ?></td>
                                     
                                 </tr>
                             <?php } ?>

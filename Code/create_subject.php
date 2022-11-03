@@ -46,8 +46,8 @@ if($subject_title !== "" && $subject_resume !== "")
     mysqli_query($db,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
     //ecriture à la table subject
-    $requete1 = "INSERT INTO `subject` (`id_tutor`, `title`, `abstract`, `confidentiality`, `team_nb`)
-     VALUES('$id_tutor','$subject_title','$subject_resume','$slider','$team_nb')";
+    $requete1 = "INSERT INTO `subject` (`id_tutor`, `title`, `abstract`, `confidentiality`, `team_nb`,  `date`)
+     VALUES('$id_tutor','$subject_title','$subject_resume','$slider','$team_nb',curdate())";
     $exec_requete1 = mysqli_query($db, $requete1);
     if(!$exec_requete1){
     die('Erreur : ' .mysqli_error($db));
