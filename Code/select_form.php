@@ -15,12 +15,13 @@ if(!$conn){
 
 mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
-    $requete = "SELECT * FROM subject where title='".$_GET['titre_sujet']."'";
+    $requete = "SELECT * FROM subject where id='".$_GET['id']."'";
     $exec_requete = mysqli_query($conn, $requete);
     if(!$exec_requete){
         die('Erreur : ' .mysqli_connect_error());
     }
     $reponse = mysqli_fetch_array($exec_requete);
+    $titre=$reponse['title'];
     $confidentiality=$reponse['confidentiality'];
     $equipe=$reponse['team_nb'];
     $img=$reponse['image'];

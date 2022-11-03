@@ -8,26 +8,19 @@ $db_username = 'root';
 $db_passord = 'root';
 // connexion à la base de données
 $conn = mysqli_connect($servername, $db_username, $db_passord,"site_ping");
-if(isset($_GET['slider'])){
-    $slider = $_GET['slider'];
-}else if(!isset($_GET['slider'])){
-    $slider='false'; 
-}
-$id=$_GET['id'];
 //On vérifie la connexion
 if(!$conn){
     die('Erreur : ' .mysqli_connect_error());
 }
 
 mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
-    $requete = "UPDATE subject set image='".$_GET['avatar']."',doc_pdf='".$_GET['pdf']."',confidentiality='$slider', team_nb='".$_GET['equipe']."' where id='$id'";
+
+    $requete = "DELETE FROM subject where id='".$_GET['id']."'";
     $exec_requete = mysqli_query($conn, $requete);
     if(!$exec_requete){
         die('Erreur : ' .mysqli_connect_error());
     }
-
-    header('Location: home_conn.php?modif=1');
-
+    header('Location: home_conn.php?modif=2');
 }
 
 ?>

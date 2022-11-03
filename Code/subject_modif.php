@@ -1,5 +1,5 @@
-<?php if (isset($_GET['titre_sujet'])){
-  $sujet = $_GET['titre_sujet'];
+<?php if (isset($_GET['id'])){
+  $id = $_GET['id'];
  } 
  include_once "select_form.php"; ?>
 <!doctype html>
@@ -46,7 +46,7 @@
       <h5>Compte tuteur</h5>
       <div style="float:left;width: 450px !important;">
       <label for="subject_title">Saisissez le titre du sujet</label>
-      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input" value=<?php echo $sujet; ?>>
+      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input" value=<?php echo $titre; ?>>
 
       <label for="subject_resume">Résumé du projet</label>
       
@@ -80,12 +80,13 @@
       
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">
-        <?php if ($confidentiality==1){ ?>
-        <input type="checkbox" id="slider" name="slider" value=1 checked>
+        <?php if ($confidentiality=="true"){ ?>
+        <input type="checkbox" id="slider" name="slider" value="true" checked>
       <?php } else { ?>
-        <input type="checkbox" id="slider" name="slider" value=1><?php } ?>
+        <input type="checkbox" id="slider" name="slider" value="false"><?php } ?>
         <span class="slider round"></span>
       </label>
+      <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
 </div>
       <button class="button" type="submit">Enregistrer mes modifications</button>
 </form>
