@@ -22,6 +22,7 @@ mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion 
     }
     $reponse = mysqli_fetch_array($exec_requete);
     $titre=$reponse['title'];
+    $abstract=$reponse['abstract'];
     $confidentiality=$reponse['confidentiality'];
     $equipe=$reponse['team_nb'];
     $img=$reponse['image'];

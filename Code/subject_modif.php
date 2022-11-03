@@ -52,7 +52,7 @@ if (isset($_GET['id'])){
 
       <label for="subject_resume">Résumé du projet</label>
       
-      <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input">
+      <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input" value="<?php echo $abstract; ?>">
       <!-- -->
       <label class="labelbutton">Ressource nécessaire pour le projet</label>
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
