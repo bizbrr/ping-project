@@ -32,7 +32,6 @@ $db_passord = 'root';
 session_start();
 $id_tutor = $_SESSION["id_tutor"];
 
-
 if($subject_title !== "" && $subject_resume !== "")
 {
 
