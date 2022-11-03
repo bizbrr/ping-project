@@ -53,7 +53,7 @@ if(isset($username) && isset($password))
         }
         else
         {
-           //header('Location: authent.php?erreur=1'); // utilisateur ou mot de passe incorrect
+           header('Location: authent.php?erreur=1'); // utilisateur ou mot de passe incorrect
         }
     }
     else
