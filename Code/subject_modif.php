@@ -85,7 +85,7 @@ if (isset($_GET['id'])){
         <?php if ($confidentiality=="true"){ ?>
         <input type="checkbox" id="slider" name="slider" value="true" checked>
       <?php } else { ?>
-        <input type="checkbox" id="slider" name="slider" value="false"><?php } ?>
+        <input type="checkbox" id="slider" name="slider"><?php } ?>
         <span class="slider round"></span>
       </label>
       <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
