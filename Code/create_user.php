@@ -2,7 +2,7 @@
 //infos table authent_tutor
 $username = $_POST['username'];
 $mail = $_POST['email'];
-$password = $_POST['mdp'];
+$password = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
 //infos table tutor
 $name = $_POST['name'];
@@ -67,7 +67,6 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
         if(!$exec_requete3){
             die('Erreur : ' .mysqli_connect_error());
         }
-        
         $_SESSION['username'] = $username;
         header('Location: authent.php?confirm=1');
         var_dump($_GET['confirm']);

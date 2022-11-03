@@ -21,7 +21,7 @@ if(isset($username) && isset($password))
     //$password = mysql_real_escape_string($db,htmlspecialchars($password));
 
     if($username !== "" && $password !== "")
-    {
+    {echo "mdp vide";
         // Récupère la clé de hachage
         $requete_hash = "SELECT password FROM authent_tutor where user_name = '$username'";
         $exec_requete_hash = mysqli_query($db,$requete_hash);
@@ -39,7 +39,7 @@ if(isset($username) && isset($password))
         $username = $username;
 
         if($count !=0 && password_verify($password,$reponse_hash[0])==true) // nom d'utilisateur et mot de passe corrects
-        {
+        {echo "dans if";
             //récupère l'id-tutor
             $requete_id_tutor = "SELECT id_tutor FROM authent_tutor where 
             user_name = '$username' and password = '$reponse_hash[0]'";
@@ -53,7 +53,7 @@ if(isset($username) && isset($password))
         }
         else
         {
-           //header('Location: authent.php?erreur=1'); // utilisateur ou mot de passe incorrect
+           header('Location: authent.php?erreur=1'); // utilisateur ou mot de passe incorrect
         }
     }
     else

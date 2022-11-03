@@ -50,7 +50,7 @@
             </div>
 <?php }} ?>
 
-    <form style="height: 700px !important; width: 1000px !important;" action="create_user.php" method="POST">
+    <form style="height: 700px !important; width: 1000px !important;margin-top:70px; !important" action="create_user.php" method="POST">
       <h3>Formulaire d'inscription</h3>
       <h5>Compte tuteur</h5>
 <div style="float:left;width: 450px !important;">
