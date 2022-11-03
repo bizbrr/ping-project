@@ -1,5 +1,5 @@
 <?php
-
+//suppression d'un sujet à partir du tableau
 if (!empty($_GET)){
 
   //infos de log server pour conn

@@ -1,5 +1,5 @@
 <?php
-
+//mise à jour du formuaire (modifications)
 if (!empty($_GET)){
 
   //infos de log server pour conn

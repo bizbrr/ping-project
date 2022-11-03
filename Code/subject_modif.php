@@ -1,4 +1,6 @@
-<?php if (isset($_GET['id'])){
+<?php 
+//id permettant de récupérer les données
+if (isset($_GET['id'])){
   $id = $_GET['id'];
  } 
  include_once "select_form.php"; ?>

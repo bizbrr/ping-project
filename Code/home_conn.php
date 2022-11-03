@@ -134,6 +134,7 @@ if(!$db){
 ?>
 
 <script>
+    //fonction permettant d'executer le PHP nécessaire
 function redirectionEdit(id){
     window.location = 'http://localhost/ping-web-site-zaibet-serine-bizandry/Code/subject_modif.php?id='+id
 }

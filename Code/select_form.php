@@ -1,5 +1,5 @@
 <?php
-
+//affichage des données lors de l'édition d'un formulaire
 if (!empty($_GET)){
 
   //infos de log server pour conn
