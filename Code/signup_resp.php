@@ -50,9 +50,9 @@
             </div>
 <?php }} ?>
 
-    <form style="height: 700px !important; width: 1000px !important;margin-top:70px !important" action="create_user.php" method="POST">
+    <form style="height: 700px !important; width: 1000px !important;margin-top:70px !important" action="create_resp.php" method="POST">
       <h3>Formulaire d'inscription</h3>
-      <h5>Compte tuteur</h5>
+      <h5>Compte responsable</h5>
 <div style="float:left;width: 450px !important;">
       <label for="email">Saisissez votre nom *</label>
       <input type="text" placeholder="Nom" name="name" id="name" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">

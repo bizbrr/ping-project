@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentification - PING Esigelec</title>
+    <title>Authentification admin - PING Esigelec</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet" type="text/css">
@@ -41,20 +41,6 @@
 
     </div>
 
-    <?php if(isset($_GET['confirm'])) { 
-      if ($_GET['confirm']==1) { ?>
-        <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-success" role="alert">
-          <?php 
-                
-                session_start();
-                if(isset($_SESSION["username"])){
-                echo "Bonjour, vous pouvez dès à présent vous connecter avec le nom d'utilisateur suivant : ".$_SESSION["username"]; 
-                }
-          ?>
-        </div>
-    <?php } }?>           
-
-    
 
 <?php if(isset($_GET['erreur'])) { 
   if ($_GET['erreur']==1) { ?>
@@ -71,9 +57,9 @@
     </div>
   <?php } } ?>
 
-  <form action="verif_user.php" method="POST">
+  <form action="verif_admin.php" method="POST">
       <h3>Connexion</h3>
-      <h5>Accès tuteur</h5>
+      <h5>Accès administrateur</h5>
 
       <label for="username">Nom d'utilisateur</label>
       <input type="text" placeholder="Nom d'utilisateur" name="username" id="username" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
