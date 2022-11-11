@@ -7,6 +7,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/home_conn.css" rel="stylesheet" type="text/css">
     <link href="css/style2.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="animation.js"></script>
 </head>
 <style> body{
     background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");
@@ -142,4 +144,5 @@ function redirectionEdit(id){
 function redirectionDelete(id){
     window.location = 'http://localhost/ping-web-site-zaibet-serine-bizandry/Code/delete_subject.php?id='+id;
 }
+
 </script>
