@@ -15,20 +15,16 @@
 </style>
 
 <?php
+include_once('.inc.php');
 session_start();
 $id_tutor = $_SESSION["id_tutor"];
 
-$db = mysqli_connect('localhost', 'root', 'root','site_ping');
-mysqli_query($db,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
+mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
-//On vérifie la connexion
-if(!$db){
-    die('Erreur : ' .mysqli_connect_error());
-}
 
 $sql = "SELECT * FROM subject";
-$resultat = mysqli_query($db,$sql) or die('Erreur '.mysqli_connect_error());
+$resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
 ?>
 
 <body>
@@ -82,7 +78,7 @@ $resultat = mysqli_query($db,$sql) or die('Erreur '.mysqli_connect_error());
                             <tbody class="table-body">
                             <?php while($data = mysqli_fetch_array($resultat)) { 
                                 $sql2 = 'SELECT label FROM status WHERE id="'.$data['id_status'].'"';
-                                $resultat2 = mysqli_query($db,$sql2) or die('Erreur '.mysqli_connect_error());
+                                $resultat2 = mysqli_query($conn,$sql2) or die('Erreur '.mysqli_connect_error());
                                 $data2 = mysqli_fetch_array($resultat2)
                                 ?>
                                 <tr class="cell-1 bg-tab">

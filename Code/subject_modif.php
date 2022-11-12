@@ -43,7 +43,7 @@ if (isset($_GET['id'])){
     </header>
      <!--end navbar -->
 
-    <form style="height: 640px !important; width: 1000px !important; top: 65%;" action="update_form.php">
+    <form method="post" style="height: 640px !important; width: 1000px !important; top: 65%;" action="update_form.php" enctype="multipart/form-data">
       <h3>Modifier les informations du projet</h3>
       <h5>Compte tuteur</h5>
       <div style="float:left;width: 450px !important;">
@@ -52,7 +52,7 @@ if (isset($_GET['id'])){
 
       <label for="subject_resume">Résumé du projet</label>
       
-      <input type="text" placeholder="Résumé du projet" id="subject_resume" class="input" value="<?php echo $abstract; ?>">
+      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input" value="<?php echo $abstract; ?>">
       <!-- -->
       <label class="labelbutton">Ressource nécessaire pour le projet</label>
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
