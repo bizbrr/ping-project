@@ -22,7 +22,7 @@ if($subject_title !== "" && $subject_resume !== "")
     mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
     //ecriture à la table subject
-    $requete1 = "INSERT INTO `subject` (`id_tutor`, `title`, `abstract`,`image`,`doc_pdf`, `confidentiality`, `team_nb`,`status`,  `date`)
+    $requete1 = "INSERT INTO `subject` (`id_tutor`, `title`, `abstract`,`image`,`doc_pdf`, `confidentiality`, `team_nb`,`id_status`,  `date`)
      VALUES('$id_tutor','$subject_title','$subject_resume','$upload_atr','$upload_pdf','$slider','$team_nb','2',curdate())";
     $exec_requete1 = mysqli_query($conn, $requete1);
     if(!$exec_requete1){

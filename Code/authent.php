@@ -44,13 +44,7 @@
     <?php if(isset($_GET['confirm'])) { 
       if ($_GET['confirm']==1) { ?>
         <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-success" role="alert">
-          <?php 
-                
-                session_start();
-                if(isset($_SESSION["username"])){
-                echo "Bonjour, vous pouvez dès à présent vous connecter avec le nom d'utilisateur suivant : ".$_SESSION["username"]; 
-                }
-          ?>
+        Compte tuteur créé avec succès
         </div>
     <?php } }?>           
 

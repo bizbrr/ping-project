@@ -33,6 +33,7 @@
                     </ul>
                 </div>
                 <?php
+                session_start();
                 if(isset($_SESSION['username'])) { ?>
                 <a class="btn btn-danger" href="logout.php">Déconnexion</a>
                 <?php } ?>
@@ -50,7 +51,7 @@
 
 <?php
 
-$id_tutor = $_SESSION["id_tutor"];
+// $id_tutor = $_SESSION["id_tutor"];
 
 ?>
 
@@ -79,11 +80,11 @@ $id_tutor = $_SESSION["id_tutor"];
 
       <input type="file"
         id="avatar" name="avatar"
-        accept="image/png, image/jpeg" value="<?php echo $img; ?>">
+        accept="image/png, image/jpeg">
 
         <label for="avatar">Insérer un fichier :</label>
 
-      <input type="file" id="file" name="pdf" accept="application/pdf" value="<?php echo $pdf; ?>">
+      <input type="file" id="file" name="pdf" accept="application/pdf">
       </input>
 
       <label class="labelbutton">Confidentiel</label> 

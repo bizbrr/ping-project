@@ -35,7 +35,7 @@ if (isset($_GET['id'])){
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.php" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
-                        <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
+                        <li class="nav-item"><a href="home_conn.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Revenenir à mes projets</a></li>
                     </ul>
                 </div>
                 <?php session_start();
@@ -61,15 +61,15 @@ if (isset($_GET['id'])){
       <label class="labelbutton">Ressource nécessaire pour le projet</label>
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
       <?php if($equipe==1){ ?>
-              <input type="radio" name="equipe" id="contactChoice1" value=1 checked/>
+              <input type="radio" name="equipe" id="contactChoice1" value="1" checked/>
       <?php } else { ?>
-              <input type="radio" name="equipe" id="contactChoice1" value=1/>
+              <input type="radio" name="equipe" id="contactChoice1" value="1"/>
       <?php } ?>
       <label class="labelcontent" for="contactChoice2">Deux équipes</label>
       <?php if($equipe==2){ ?>
-              <input type="radio" name="equipe" id="contactChoice2" value=2 checked/>
+              <input type="radio" name="equipe" id="contactChoice2" value="2" checked/>
       <?php } else { ?>
-              <input type="radio" name="equipe" id="contactChoice2" value=2/>
+              <input type="radio" name="equipe" id="contactChoice2" value="2"/>
       <?php } ?>
 </div>
 <div style="float:right;width: 450px !important;">
