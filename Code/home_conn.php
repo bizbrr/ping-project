@@ -75,6 +75,10 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                             <div class="alert alert-success" role="alert">
                                 Sujet supprimé !
                             </div>
+            <?php } if ($_GET['modif']==3) { ?>
+                            <div class="alert alert-success" role="alert">
+                                Sujet créé !
+                            </div>
             <?php } } ?>
                     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Sujet créés</h3>
                     <a href="subject_form.php"><button type="button" class="btn btn-primary" style="margin-bottom:20px;"><i class="fas fa-glasses"></i> Créer un nouveau sujet</button></a>

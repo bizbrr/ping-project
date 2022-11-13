@@ -38,7 +38,7 @@ if (isset($_GET['id'])){
                         <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
                     </ul>
                 </div>
-                <?php
+                <?php session_start();
                 if(isset($_SESSION['username'])) { ?>
                 <a class="btn btn-danger" href="logout.php">Déconnexion</a>
                 <?php } ?>
@@ -52,11 +52,11 @@ if (isset($_GET['id'])){
       <h5>Compte tuteur</h5>
       <div style="float:left;width: 450px !important;">
       <label for="subject_title">Saisissez le titre du sujet</label>
-      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input" value=<?php echo $titre; ?>>
+      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input_style" value=<?php echo $titre; ?>>
 
       <label for="subject_resume">Résumé du projet</label>
       
-      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input" value="<?php echo $abstract; ?>">
+      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input_style" value="<?php echo $abstract; ?>">
       <!-- -->
       <label class="labelbutton">Ressource nécessaire pour le projet</label>
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
@@ -75,14 +75,15 @@ if (isset($_GET['id'])){
 <div style="float:right;width: 450px !important;">
       <label for="avatar">Insérer une image :</label>
 
-      <input type="file"
+      <input class="input_style" type="file"
         id="avatar" name="avatar"
         accept="image/png, image/jpeg" value="<?php echo $img; ?>">
-
+        Image enregistrée: <a href="download_files.php?path=<?php echo $img; ?>"><?php echo substr($img,8); ?></a><br>
         <label for="avatar">Insérer un fichier :</label>
 
-      <input type="file" id="file" name="pdf" accept="application/pdf" value="<?php echo $pdf; ?>">
+      <input class="input_style" type="file" id="file" name="pdf" accept="application/pdf" value="">
       </input>
+      Pdf enregistré: <a href="download_files.php?path=<?php echo $pdf; ?>"><?php echo substr($pdf,8); ?></a>
       
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">

@@ -12,7 +12,7 @@ $id=$_POST['id'];
 
 
 mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
-    $requete = "UPDATE subject set title='".$_POST['titre_sujet']."', image='".$_POST['avatar']."',doc_pdf='".$_POST['pdf']."',confidentiality='$slider', team_nb='".$_POST['equipe']."', abstract='".$_POST['subject_resume']."', date=curdate() where id='$id'";
+    $requete = "UPDATE subject set title='".$_POST['titre_sujet']."', image='".$upload_atr."',doc_pdf='".$upload_pdf."',confidentiality='$slider', team_nb='".$_POST['equipe']."', abstract='".$_POST['subject_resume']."', date=curdate() where id='$id'";
     $exec_requete = mysqli_query($conn, $requete);
     if(!$exec_requete){
         die('Erreur : ' .mysqli_connect_error());

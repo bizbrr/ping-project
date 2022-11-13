@@ -78,12 +78,12 @@ if (isset($_GET['id'])){
       <input class="input_style" type="file"
         id="avatar" name="avatar"
         accept="image/png, image/jpeg" value="<?php echo $img; ?>">
-
+        Image jointe : <a href="download_files.php?path=<?php echo $pdf; ?>"><?php echo substr($img,8); ?></a><br>
         <label for="avatar">Insérer un fichier :</label>
 
       <input class="input_style" type="file" id="file" name="pdf" accept="application/pdf" value="<?php echo $pdf; ?>">
       </input>
-      
+      Fichier joint : <a href="download_files.php?path=<?php echo $pdf; ?>"><?php echo substr($pdf,8); ?></a>
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">
         <?php if ($confidentiality=="true"){ ?>

@@ -54,7 +54,7 @@ $id_tutor = $_SESSION["id_tutor"];
 
 ?>
 
-<form style="height: 650px !important; width: 1000px !important; top: 65%;"action="create_subject.php" method="POST">
+<form style="height: 650px !important; width: 1000px !important; top: 65%;"action="create_subject.php" method="POST" enctype="multipart/form-data">
       <h3>Création de nouveau sujet de projet</h3>
       <h5>Compte tuteur</h5>
 <div style="float:left;width: 450px !important;">
@@ -78,14 +78,13 @@ $id_tutor = $_SESSION["id_tutor"];
       <label for="avatar">Insérer une image :</label>
 
       <input type="file"
-        id="image" name="image"
-        accept="image/png, image/jpeg">
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg" value="<?php echo $img; ?>">
 
         <label for="avatar">Insérer un fichier :</label>
 
-      <input type="file"
-        id="file" name="file"
-        accept="image/png, image/jpeg">
+      <input type="file" id="file" name="pdf" accept="application/pdf" value="<?php echo $pdf; ?>">
+      </input>
 
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">
