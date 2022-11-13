@@ -9,6 +9,7 @@
     <link href="css/home_conn.css" rel="stylesheet" type="text/css">
     <link href="css/style2.css" rel="stylesheet">
     <script src="animation.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <style> body{
     background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");
