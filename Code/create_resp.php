@@ -32,7 +32,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
 
     if($count!=0) // nom d'utilisateur et mot de passe corrects
     {
-        header('Location: signup.php?erreur=2'); // Un utilisateur est déjà associé à cet e-mail ou nom d'utilisateur. Veuillez utiliser un autre.
+        header('Location: signup_resp.php?erreur=2'); // Un utilisateur est déjà associé à cet e-mail ou nom d'utilisateur. Veuillez utiliser un autre.
     }
     else
     {
@@ -59,13 +59,13 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
             die('Erreur : ' .mysqli_connect_error());
         }
         $_SESSION['username'] = $username;
-        header('Location: authent.php?confirm=1');
+        header('Location: authent_resp.php?confirm=1');
         var_dump($_GET['confirm']);
     }
 }
 else
 {
-    header('Location: signup.php?erreur=1'); // Veuillez compléter tout les champs
+    header('Location: signup_resp.php?erreur=1'); // Veuillez compléter tout les champs
 }
 mysqli_close($conn);
 ?>

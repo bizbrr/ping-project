@@ -41,7 +41,7 @@ if(isset($username) && isset($password))
         {
             $_SESSION['username'] = $username;
             //echo ("Connecté");
-            header('Location: signup_resp.php');        
+            header('Location: alter_users.php?success=1');        
         }
         else
         {

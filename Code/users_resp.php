@@ -17,13 +17,14 @@
 <?php
 include_once('.inc.php');
 session_start();
-$id_tutor = $_SESSION["id_tutor"];
+
 
 
 mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
 
-$sql = "SELECT * FROM subject";
+$sql = "SELECT * FROM authent_resp INNER JOIN resp_ping on id_resp_ping=id";
+
 $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
 ?>
 
@@ -58,44 +59,42 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                     echo "Bonjour ".$_SESSION["username"].", vous êtes connecté";
                                 
             ?>
-            <?php
-            $_SESSION['id_tutor'] = $id_tutor;
-            ?>
             </div>
-                    <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Sujet créés</h3>
-                    <!-- <a href="subject_form.php"><button type="button" class="btn btn-primary" style="margin-bottom:20px;"><i class="fas fa-glasses"></i> Créer un nouveau sujet</button></a> -->
+            <?php if(isset($_GET['modif'])) { 
+                        if ($_GET['modif']==1) { ?>
+                            <div class="alert alert-success" role="alert">
+                                Responsable supprimé !
+                            </div>
+            <?php } } ?>
+                    <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Liste des responsables</h3>
+                    <a  href="users_tutor.php" class="btn btn-primary" style="margin-bottom:10px;">Gérer les comptes tuteurs</a>
+                    
                     <div class="table-responsive tab-border">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Id sujet</th>
-                                    <th>Sujet</th>
-                                    <th>Statut</th>
-                                    <th>Action</th>
-                                    <th>Créé le</th>
+                                    <th>Id</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Poste</th>
+                                    <th>Entreprise</th>
+                                    <th>Nom d'utilisateur</th>
+                                    <th>Supprimer</th>
                                 </tr>
                             </thead>
                             <tbody class="table-body">
                             <?php while($data = mysqli_fetch_array($resultat)) { 
-                                $sql2 = 'SELECT label FROM status WHERE id="'.$data['id_status'].'"';
-                                $resultat2 = mysqli_query($conn,$sql2) or die('Erreur '.mysqli_connect_error());
-                                $data2 = mysqli_fetch_array($resultat2)
                                 ?>
                                 <tr class="cell-1 bg-tab">
                                     <td style="color:white"><?php echo $data['id']; ?></td>
-                                    <td style="color:white"><?php echo $data['title']; ?></td>
-                                    <?php if ($data2['label']=='Validé'){ ?>
-                                        <td><span class="badge bg-success"><?php echo $data2['label']; ?></span></td>
-                                    <?php } elseif ($data2['label']=='En attente'){ ?>
-                                        <td><span class="badge bg-info"><?php echo $data2['label']; ?></span></td>
-                                    <?php } else { ?>
-                                        <td><span class="badge bg-danger"><?php echo $data2['label']; ?></span></td>
-                                    <?php } ?>
+                                    <td style="color:white"><?php echo $data['nom']; ?></td>
+                                    <td style="color:white"><?php echo $data['prenom']; ?></td>
+                                    <td style="color:white"><?php echo $data['poste']; ?></td>
+                                    <td style="color:white"><?php echo $data['entreprise']; ?></td>
+                                    <td style="color:white"><?php echo $data['user_name']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" onclick=redirectionEdit(<?php echo json_encode($data['title']); ?>)><i class="fas fa-edit"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                        <a  href="delete_resp.php?id=<?php echo $data['id']; ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                                     </td>
-                                    <td style="color:white"><?php echo $data['creation_date']; ?></td>
                                     
                                 </tr>
                             <?php } ?>
@@ -116,12 +115,6 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
 </body>
 </html>
 <?php } else {
-                header('Location: authent.php?erreur=3');
+                header('Location: authent_admin.php?erreur=3');
             }  
 ?>
-
-<script>
-function redirectionEdit(sujet){
-    window.location = 'http://localhost/ping-web-site-zaibet-serine-bizandry/Code/subject_modif.php?sujet='+sujet
-}
-</script>
