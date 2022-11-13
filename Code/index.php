@@ -7,6 +7,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="css/style2.css" rel="stylesheet">
+    <script src="animation.js"></script>
   </head>
 
 
@@ -25,11 +26,24 @@
                     <li class="nav-item active"><a href="#" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
                     <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Accès tuteur</a></li>
                     <li class="nav-item"><a href="authent_resp.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Accès reponsable</a></li>
+                    <li class="nav-item"><a href="authent_admin.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Accès admin</a></li>
                 </ul>
             </div>
+            <?php
+                if(isset($_SESSION['username'])) { ?>
+                <a class="btn btn-danger" href="logout.php">Déconnexion</a>
+                <?php } ?>
         </div>
     </nav>
 </header>
+
+<?php if(isset($_GET['connexion'])) { 
+  if ($_GET['connexion']==0) { ?>
+            <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-success" role="alert">
+               Déconnexion réussie
+            </div>
+<?php } } ?>
+
 <body>
 <div class="container">
     <div class="pt-5 text-white">

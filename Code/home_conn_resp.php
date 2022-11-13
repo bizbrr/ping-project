@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/home_conn.css" rel="stylesheet" type="text/css">
     <link href="css/style2.css" rel="stylesheet">
+    <script src="animation.js"></script>
 </head>
 <style> body{
     background-image: url("http://localhost/ping-web-site-zaibet-serine-bizandry/Code/images/background.jpg");
@@ -44,11 +45,15 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                         <!-- <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li> -->
                     </ul>
                 </div>
-                <a href="logout.php">Déconnexion</a>
+                <?php
+                if(isset($_SESSION['username'])) { ?>
+                <a class="btn btn-danger" href="logout.php">Déconnexion</a>
+                <?php } ?>
             </div>
         </nav>
     </header>
      <!--end navbar -->
+
 <div class="tab">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
@@ -58,10 +63,13 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                     echo "Bonjour ".$_SESSION["username"].", vous êtes connecté";
                                 
             ?>
-            <?php
-            $_SESSION['id_tutor'] = $id_tutor;
-            ?>
             </div>
+            <?php if(isset($_GET['modif'])) { 
+                        if ($_GET['modif']==1) { ?>
+                            <div class="alert alert-success" role="alert">
+                                Sujet contrôlé !
+                            </div>
+            <?php } } ?>
                     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Sujet créés</h3>
                     <!-- <a href="subject_form.php"><button type="button" class="btn btn-primary" style="margin-bottom:20px;"><i class="fas fa-glasses"></i> Créer un nouveau sujet</button></a> -->
                     <div class="table-responsive tab-border">
@@ -71,7 +79,7 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                                     <th>Id sujet</th>
                                     <th>Sujet</th>
                                     <th>Statut</th>
-                                    <th>Action</th>
+                                    <th>Modifier Statut</th>
                                     <th>Créé le</th>
                                 </tr>
                             </thead>
@@ -92,10 +100,9 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                                         <td><span class="badge bg-danger"><?php echo $data2['label']; ?></span></td>
                                     <?php } ?>
                                     <td>
-                                        <button type="button" class="btn btn-primary" onclick=redirectionEdit(<?php echo json_encode($data['title']); ?>)><i class="fas fa-edit"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                        <a class="btn btn-info" href="control_subject.php?id=<?php echo $data['id']; ?>&label_status=<?php echo $data2['label']; ?>"><i class="fas fa-edit"></i>Contrôler</a>
                                     </td>
-                                    <td style="color:white"><?php echo $data['creation_date']; ?></td>
+                                    <td style="color:white"><?php echo $data['date']; ?></td>
                                     
                                 </tr>
                             <?php } ?>
@@ -116,12 +123,6 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
 </body>
 </html>
 <?php } else {
-                header('Location: authent.php?erreur=3');
+                header('Location: authent_resp.php?erreur=3');
             }  
 ?>
-
-<script>
-function redirectionEdit(sujet){
-    window.location = 'http://localhost/ping-web-site-zaibet-serine-bizandry/Code/subject_modif.php?sujet='+sujet
-}
-</script>

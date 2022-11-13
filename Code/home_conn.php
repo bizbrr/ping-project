@@ -46,7 +46,10 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                         <!-- <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li> -->
                     </ul>
                 </div>
-                <a href="logout.php">Déconnexion</a>
+                <?php
+                if(isset($_SESSION['username'])) { ?>
+                <a class="btn btn-danger" href="logout.php">Déconnexion</a>
+                <?php } ?>
             </div>
         </nav>
     </header>

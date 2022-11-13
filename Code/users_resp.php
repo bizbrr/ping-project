@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Espace responsable - PING Esigelec</title>
+    <title>Gestion responsables - PING Esigelec</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/home_conn.css" rel="stylesheet" type="text/css">
+    <script src="animation.js"></script>
     <link href="css/style2.css" rel="stylesheet">
 </head>
 <style> body{
@@ -45,7 +46,10 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                         <!-- <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li> -->
                     </ul>
                 </div>
-                <a href="logout.php">Déconnexion</a>
+                <?php
+                if(isset($_SESSION['username'])) { ?>
+                <a class="btn btn-danger" href="logout.php">Déconnexion</a>
+                <?php } ?>
             </div>
         </nav>
     </header>

@@ -18,6 +18,7 @@ mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion 
     $equipe=$reponse['team_nb'];
     $img=$reponse['image'];
     $pdf=$reponse['doc_pdf'];
+    $id_status=$response['id_status'];
 }
 
 ?>

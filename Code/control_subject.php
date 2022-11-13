@@ -38,7 +38,7 @@ if (isset($_GET['id'])){
                         <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
                     </ul>
                 </div>
-                <?php
+                <?php session_start();
                 if(isset($_SESSION['username'])) { ?>
                 <a class="btn btn-danger" href="logout.php">Déconnexion</a>
                 <?php } ?>
@@ -47,54 +47,66 @@ if (isset($_GET['id'])){
     </header>
      <!--end navbar -->
 
-    <form method="post" style="height: 640px !important; width: 1000px !important; top: 65%;" action="update_form.php" enctype="multipart/form-data">
-      <h3>Modifier les informations du projet</h3>
-      <h5>Compte tuteur</h5>
+    <form method="post" style="height: 800px !important; width: 1000px !important; top: 65%;" action="update_status.php" enctype="multipart/form-data">
+      <h3>Contrôler le projet</h3>
+      <h5>Compte responsable</h5>
       <div style="float:left;width: 450px !important;">
-      <label for="subject_title">Saisissez le titre du sujet</label>
-      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input" value=<?php echo $titre; ?>>
+      <label for="subject_title">Titre du sujet</label>
+      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input_style" value=<?php echo $titre; ?> disabled>
 
       <label for="subject_resume">Résumé du projet</label>
       
-      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input" value="<?php echo $abstract; ?>">
+      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input_style" value="<?php echo $abstract; ?>" disabled>
       <!-- -->
       <label class="labelbutton">Ressource nécessaire pour le projet</label>
       <label  class="labelcontent" for="contactChoice1">Une équipe</label>
       <?php if($equipe==1){ ?>
               <input type="radio" name="equipe" id="contactChoice1" value=1 checked/>
       <?php } else { ?>
-              <input type="radio" name="equipe" id="contactChoice1" value=1/>
+              <input type="radio" name="equipe" id="contactChoice1" value=1 />
       <?php } ?>
       <label class="labelcontent" for="contactChoice2">Deux équipes</label>
       <?php if($equipe==2){ ?>
               <input type="radio" name="equipe" id="contactChoice2" value=2 checked/>
       <?php } else { ?>
-              <input type="radio" name="equipe" id="contactChoice2" value=2/>
+              <input type="radio" name="equipe" id="contactChoice2" value=2 />
       <?php } ?>
 </div>
 <div style="float:right;width: 450px !important;">
       <label for="avatar">Insérer une image :</label>
 
-      <input type="file"
+      <input class="input_style" type="file"
         id="avatar" name="avatar"
         accept="image/png, image/jpeg" value="<?php echo $img; ?>">
 
         <label for="avatar">Insérer un fichier :</label>
 
-      <input type="file" id="file" name="pdf" accept="application/pdf" value="<?php echo $pdf; ?>">
+      <input class="input_style" type="file" id="file" name="pdf" accept="application/pdf" value="<?php echo $pdf; ?>">
       </input>
       
       <label class="labelbutton">Confidentiel</label> 
       <label class="switch">
         <?php if ($confidentiality=="true"){ ?>
-        <input type="checkbox" id="slider" name="slider" value="true" checked>
+        <input type="checkbox" id="slider" name="slider" value="true" checked disabled>
       <?php } else { ?>
-        <input type="checkbox" id="slider" name="slider"><?php } ?>
+        <input type="checkbox" id="slider" name="slider" disabled><?php } ?>
         <span class="slider round"></span>
       </label>
+      </div>
+      <!-- Champs responsable -->
+
+      <label class="">Statut du sujet :</label> 
+      <select name="status" class="input_style">
+        <option></option>
+        <option value="Validé" style="color:black;" <?php if ($_GET['label_status'] == 'Validé') { echo 'selected'; } ?>>Validé</option>
+        <option value="Refusé" style="color:black;" <?php if ($_GET['label_status'] == 'Refusé') { echo 'selected'; } ?>>Refusé</option>
+      </select>
+      <label for="remarque">Remarque du tuteur:</label>
+      <textarea class="input_style" id="remarque" name="remarque" rows="4" cols="50"></textarea>
       <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
-</div>
-      <button class="button" type="submit">Enregistrer mes modifications</button>
+
+
+      <button class="button" type="submit">Enregistrer le statut</button>
 </form>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>

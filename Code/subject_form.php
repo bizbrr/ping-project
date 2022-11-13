@@ -32,6 +32,10 @@
                         <!-- <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li> -->
                     </ul>
                 </div>
+                <?php
+                if(isset($_SESSION['username'])) { ?>
+                <a class="btn btn-danger" href="logout.php">Déconnexion</a>
+                <?php } ?>
             </div>
         </nav>
     </header>
@@ -45,9 +49,9 @@
 <?php }} ?>
 
 <?php
-session_start();
+
 $id_tutor = $_SESSION["id_tutor"];
-echo $id_tutor;
+
 ?>
 
 <form style="height: 650px !important; width: 1000px !important; top: 65%;"action="create_subject.php" method="POST">
