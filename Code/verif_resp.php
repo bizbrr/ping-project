@@ -1,8 +1,13 @@
 <?php
 
+    
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+foreach ($_POST as $name => $val) {
+    $_POST[$name] = mysqli_real_escape_string($conn, $val);
+    }
+    
 session_start();
 if(isset($username) && isset($password))
 {
@@ -10,11 +15,6 @@ if(isset($username) && isset($password))
     include_once('.inc.php');
     mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
 
-    
-    // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
-    // pour éliminer toute attaque de type injection SQL et XSS
-    //$username = mysql_real_escape_string($conn,htmlspecialchars($username)); 
-    //$password = mysql_real_escape_string($conn,htmlspecialchars($password));
 
     if($username !== "" && $password !== "")
     {
@@ -37,6 +37,7 @@ if(isset($username) && isset($password))
         if($count !=0 && password_verify($password,$reponse_hash[0])==true) // nom d'utilisateur et mot de passe corrects
         {
             $_SESSION['username'] = $username;
+            $_SESSION['user_type'] = 'resp';
             //echo ("Connecté");
             header('Location: home_conn_resp.php');        
         }

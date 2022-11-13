@@ -1,8 +1,13 @@
 <?php
 
+    
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+foreach ($_POST as $name => $val) {
+    $_POST[$name] = mysqli_real_escape_string($conn, $val);
+    }
+    
 session_start();
 if(isset($username) && isset($password))
 {
@@ -14,10 +19,6 @@ if(isset($username) && isset($password))
       die('Erreur : ' .mysqli_connect_error());
   }
     
-    // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
-    // pour éliminer toute attaque de type injection SQL et XSS
-    //$username = mysql_real_escape_string($conn,htmlspecialchars($username)); 
-    //$password = mysql_real_escape_string($conn,htmlspecialchars($password));
 
     if($username !== "" && $password !== "")
     {
@@ -40,7 +41,7 @@ if(isset($username) && isset($password))
         if($count !=0 && password_verify($password,$reponse_hash[0])==true) // nom d'utilisateur et mot de passe corrects
         {
             $_SESSION['username'] = $username;
-            //echo ("Connecté");
+            $_SESSION['user_type'] = 'admin';
             header('Location: alter_users.php?success=1');        
         }
         else

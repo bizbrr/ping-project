@@ -24,12 +24,26 @@
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="#" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
+                    <?php session_start();
+                    if(!isset($_SESSION['username'])) { ?>
                     <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Accès tuteur</a></li>
-                    <li class="nav-item"><a href="authent_resp.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Accès reponsable</a></li>
+                    <li class="nav-item"><a href="authent_resp.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Accès responsable</a></li>
                     <li class="nav-item"><a href="authent_admin.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Accès admin</a></li>
+                    <?php } ?>
+                        <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 'tutor') { ?>
+                        <li class="nav-item"><a href="home_conn.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Revenir à mes projets</a></li>
+                        <?php } ?>
+
+                        <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 'resp') { ?>
+                        <li class="nav-item"><a href="home_conn_resp.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Contrôle sujets</a></li>
+                        <?php } ?>
+
+                        <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 'admin') { ?>
+                        <li class="nav-item"><a href="alter_users.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Gestion utilisateurs</a></li>
+                        <?php } ?>
                 </ul>
             </div>
-            <?php
+            <?php 
                 if(isset($_SESSION['username'])) { ?>
                 <a class="btn btn-danger" href="logout.php">Déconnexion</a>
                 <?php } ?>

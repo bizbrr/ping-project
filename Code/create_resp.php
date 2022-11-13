@@ -1,6 +1,10 @@
 <?php
 include_once('.inc.php');
 //infos table authent_tutor
+foreach ($_POST as $name => $val) {
+    $_POST[$name] = mysqli_real_escape_string($conn, $val);
+    }
+    
 $username = $_POST['username'];
 $mail = $_POST['email'];
 $password = password_hash($_POST['mdp'], PASSWORD_DEFAULT);

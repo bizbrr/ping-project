@@ -9,7 +9,7 @@ if (isset($_GET['id'])){
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ConnexionAuth</title>
+    <title>Validation sujets</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style2.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
@@ -35,7 +35,7 @@ if (isset($_GET['id'])){
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.php" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
-                        <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li>
+                        <li class="nav-item"><a href="home_conn_resp.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Revenir aux sujets</a></li>
                     </ul>
                 </div>
                 <?php session_start();

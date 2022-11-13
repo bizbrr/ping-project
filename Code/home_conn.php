@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace responsable - PING Esigelec</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/home_conn.css" rel="stylesheet" type="text/css">
     <link href="css/style2.css" rel="stylesheet">
@@ -89,6 +90,7 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                                     <th>Id sujet</th>
                                     <th>Sujet</th>
                                     <th>Statut</th>
+                                    <th>Remarque tuteur</th>
                                     <th>Action</th>
                                     <th>Créé le</th>
                                 </tr>
@@ -109,6 +111,7 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                                     <?php } else { ?>
                                         <td><span class="badge bg-danger"><?php echo $data2['label']; ?></span></td>
                                     <?php } ?>
+                                    <td style="color:white"><?php echo $data['rq_resp']; ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary" onclick=redirectionEdit(<?php echo json_encode($data['id']); ?>)><i class="fas fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger" onclick=redirectionDelete(<?php echo json_encode($data['id']); ?>)><i class="far fa-trash-alt"></i></button>

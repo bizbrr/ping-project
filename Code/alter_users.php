@@ -42,13 +42,13 @@ mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion 
                     </ul>
                 </div>
                 <?php if(isset($_SESSION['username'])) { ?>
-                <a href="logout.php">Déconnexion</a>
+                <a class="btn btn-danger" href="logout.php">Déconnexion</a>
                 <?php } ?>
             </div>
         </nav>
     </header>
      <!--end navbar -->
-     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif;margin-top:90px;">Choisissez le type de compte que vous voulez gérer</h3>
+     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif;margin-top:90px;">Choisissez le type de compte que vous voulez gérer :</h3>
 <div style="display:flex;margin-left: 32%;margin-top: 5%;">
  <div class="card" style="width: 18rem;margin-right:15px;">
   <img class="card-img-top" src="images/student.jpg" alt="Card image cap">

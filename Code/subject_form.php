@@ -29,7 +29,7 @@
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.php" class="nav-link text-uppercase font-weight-bold">Accueil <span class="sr-only"></span></a></li>
-                        <!-- <li class="nav-item"><a href="authent.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Se connecter</a></li> -->
+                        <li class="nav-item"><a href="home_conn.php" aria-current="page" class="nav-link text-uppercase font-weight-bold">Revenir à mes projets</a></li>
                     </ul>
                 </div>
                 <?php
@@ -60,11 +60,11 @@
       <h5>Compte tuteur</h5>
 <div style="float:left;width: 450px !important;">
       <label for="subject_title">Saisissez le titre du projet</label>
-      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input">
+      <input type="text" placeholder="Titre sujet Ping" name="titre_sujet" id="subject_title" class="input_style">
 
       <label for="subject_resume">Résumé du projet</label>
       
-      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input">
+      <input type="text" placeholder="Résumé du projet" name="subject_resume" id="subject_resume" class="input_style">
       <!-- -->
       <label class="labelbutton" for="contactChoice1">Ressource nécessaire pour le projet</label>
 
@@ -78,13 +78,13 @@
 <div style="float:right;width: 450px !important;">
       <label for="avatar">Insérer une image :</label>
 
-      <input type="file"
+      <input class="input_style" type="file"
         id="avatar" name="avatar"
         accept="image/png, image/jpeg">
 
         <label for="avatar">Insérer un fichier :</label>
 
-      <input type="file" id="file" name="pdf" accept="application/pdf">
+      <input class="input_style" type="file" id="file" name="pdf" accept="application/pdf">
       </input>
 
       <label class="labelbutton">Confidentiel</label> 
