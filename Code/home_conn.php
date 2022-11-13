@@ -95,7 +95,7 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
                             </thead>
                             <tbody class="table-body">
                             <?php while($data = mysqli_fetch_array($resultat)) { 
-                                $sql2 = 'SELECT label FROM status WHERE id="'.$data['id-status'].'"';
+                                $sql2 = 'SELECT label FROM status WHERE id="'.$data['id_status'].'"';
                                 $resultat2 = mysqli_query($conn,$sql2) or die('Erreur '.mysqli_connect_error());
                                 $data2 = mysqli_fetch_array($resultat2)
                                 ?>
