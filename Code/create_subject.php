@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include_once('upload_files.php');
 include_once('.inc.php');
 foreach ($_POST as $name => $val) { 
@@ -16,7 +18,6 @@ if(isset($_POST['slider'])){
 $upload_atr_sql=mysqli_real_escape_string($conn,$upload_str);
 $upload_pdf_sql=mysqli_real_escape_string($conn,$upload_pdf);
 
-session_start();
 $id_tutor = $_SESSION["id_tutor"];
 
 if($subject_title !== "" && $subject_resume !== "")

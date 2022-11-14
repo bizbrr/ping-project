@@ -4,6 +4,9 @@
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+    // connexion à la base de données
+    include_once('.inc.php');
+    
 foreach ($_POST as $name => $val) {
     $_POST[$name] = mysqli_real_escape_string($conn, $val);
     }
@@ -11,8 +14,7 @@ foreach ($_POST as $name => $val) {
 session_start();
 if(isset($username) && isset($password))
 {
-    // connexion à la base de données
-    include_once('.inc.php');
+
     mysqli_query($conn,"set names utf8") or die (mysqli_connect_error()); //gestion de l'affichage des caractères spéciaux
     
     //On vérifie la connexion
