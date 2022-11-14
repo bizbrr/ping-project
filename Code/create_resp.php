@@ -63,7 +63,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $username !== "" && $
             die('Erreur : ' .mysqli_connect_error());
         }
         $_SESSION['username'] = $username;
-        header('Location: authent_resp.php?confirm=1');
+        header('Location: users_resp.php');
         var_dump($_GET['confirm']);
     }
 }
