@@ -17,8 +17,9 @@
 </style>
 
 <?php
-include_once('.inc.php');
 session_start();
+include_once('.inc.php');
+
 $id_tutor = $_SESSION["id_tutor"];
 
 
