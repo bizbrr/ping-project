@@ -18,7 +18,7 @@ $tutored_student = $_POST['tutored_student'];
 
 
 
-if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== "" && $username !== "" && $password !== "")
+if($name !== "" && $firstname !== "" && $company !== "" && $username !== "" && $password !== "")
     {
 
 
@@ -40,7 +40,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
     }
     else
     {
-        //ecriture à la table tutor
+        //ecriture à la table resp_ping
         $requete1 = "INSERT INTO resp_ping (nom, prenom, entreprise, poste) 
                     VALUES ('$name','$firstname','$company','$poste')";
         $exec_requete1 = mysqli_query($conn, $requete1);
@@ -48,7 +48,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
             die('Erreur : ' .mysqli_connect_error());
         }
 
-        //recupère l'id du tutor précedemment ajouté
+        //recupère l'id du resp précedemment ajouté
         $requete2 = "SELECT id FROM resp_ping WHERE nom = '$name' and prenom = '$firstname' and entreprise = '$company' and poste = '$poste'";
         $exec_requete2 = mysqli_query($conn, $requete2);
         $reponse = mysqli_fetch_array($exec_requete2);
@@ -56,7 +56,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
             die('Erreur : ' .mysqli_connect_error());
         }
 
-        //ecriture à la table authent_tutor
+        //ecriture à la table authent_resp
         $requete3 = "INSERT INTO authent_resp (id_resp_ping, user_name, password) VALUES ('$reponse[0]','$username','$password')";
         $exec_requete3 = mysqli_query($conn, $requete3);
         if(!$exec_requete3){

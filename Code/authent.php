@@ -62,6 +62,10 @@
     <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
                 Vous devez vous connecter pour accéder à cette page !
     </div>
+  <?php }elseif ($_GET['erreur']==4) { ?>
+    <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-danger" role="alert">
+                Votre compte n'est pas encore actif !
+    </div>
   <?php } } ?>
 
   <form action="verif_user.php" method="POST">

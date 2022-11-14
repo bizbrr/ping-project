@@ -72,7 +72,6 @@
       <input type="password" placeholder="Mot de passe" name="password" id="password" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <button type="submit" class="button">Connexion</button>
-      <div style="font-size: 12px; text-align: center;">Vous n'avez pas de compte ? <a href="signup_resp.php">Inscrivez-vous</a></div>
   </form>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>

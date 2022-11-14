@@ -72,7 +72,7 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
             <?php } } ?>
                     <h3 style="color:white; text-align:center; font-family: 'Poppins',sans-serif; margin-bottom:20px;">Liste des responsables</h3>
                     <a  href="users_tutor.php" class="btn btn-primary" style="margin-bottom:10px;">Gérer les comptes tuteurs</a>
-                    
+                    <a  href="signup_resp.php" class="btn btn-success" style="margin-bottom:10px;">Créer un compte responsable</a>
                     <div class="table-responsive tab-border">
                         <table class="table">
                             <thead>
