@@ -1,0 +1,23 @@
+**Accès admin :
+id : admin
+mdp : admin
+
+
+
+
+**Accès tuteur :
+id : mohadub
+mdp : mohadub
+
+id : benlec
+mdp : benlec
+
+
+
+
+**Accès responsable :
+id : jeanduj
+mdp : jeanduj
+
+id : julde
+mdp : julde
