@@ -67,7 +67,7 @@
       <input type="text" placeholder="Poste" name="poste" id="poste" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
   </div>
   <div style="float:right;width: 450px !important;">
-      <label for="tutored_student">Saisissez le nom l'étudiant tutoré *</label>
+      <label for="tutored_student">Saisissez le nom l'étudiant tutoré</label>
       <input type="text" placeholder="Etudiant.e tutoré.e" name="tutored_student" id="tutored_student" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
 
       <label for="email">Saisissez votre mail *</label>
@@ -79,7 +79,7 @@
       <label for="password">Choisissez un mot de passe *</label>
       <input type="password" placeholder="Mot de passe" name="mdp" id="password" style="display: block;height: 50px;width: 100%;background-color: rgba(255,255,255,0.07);border-radius: 3px;padding: 0 10px;margin-top: 8px;font-size: 14px;font-weight: 300;">
   </div>
-      <button class="button" style="margin-top:25px">M'inscrire</button>
+      <button class="button" style="margin-top:25px">Inscrire</button>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </body>
