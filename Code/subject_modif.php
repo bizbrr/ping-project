@@ -11,10 +11,10 @@ if (isset($_GET['id'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modifier sujet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="css/style2.css" rel="stylesheet">
-    <link href="css/form.css" rel="stylesheet">
-    <link href="css/style_authent.css" rel="stylesheet">
-   <!-- --><link href="css/style_subject_form.css" rel="stylesheet"> 
+    <link href="CSS/style2.css" rel="stylesheet">
+    <link href="CSS/form.css" rel="stylesheet">
+    <link href="CSS/style_authent.css" rel="stylesheet">
+   <!-- --><link href="CSS/style_subject_form.css" rel="stylesheet"> 
   </head>
 
 <style> body{
@@ -23,7 +23,7 @@ if (isset($_GET['id'])){
 
   <body>
     <!-- navbar -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <!-- Navbar-->

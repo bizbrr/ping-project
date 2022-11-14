@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espace responsable - PING Esigelec</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="css/home_conn.css" rel="stylesheet" type="text/css">
-    <link href="css/style2.css" rel="stylesheet">
+    <link href="CSS/home_conn.css" rel="stylesheet" type="text/css">
+    <link href="CSS/style2.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="animation.js"></script>
 </head>
@@ -32,7 +32,7 @@ $resultat = mysqli_query($conn,$sql) or die('Erreur '.mysqli_connect_error());
 
 <body>
     <!-- navbar -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <!-- Navbar-->
