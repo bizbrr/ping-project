@@ -43,7 +43,7 @@
     <?php if(isset($_GET['confirm'])) { 
       if ($_GET['confirm']==1) { ?>
         <div style="top: 80px;width: 80%;left: 5%;" class="alert alert-success" role="alert">
-        Compte tuteur créé avec succès
+        Compte tuteur créé avec succès, attendez sa validation par le responsable
         </div>
     <?php } }?>           
 

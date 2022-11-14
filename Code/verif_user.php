@@ -41,7 +41,14 @@ if(isset($username) && isset($password))
         $count = $reponse['count(*)'];
         $username = $username;
 
-        if($count !=0 && password_verify($password,$reponse_hash[0])==true) // nom d'utilisateur et mot de passe corrects
+        //vérifie l'activité du compte
+        $requete_is_active = "SELECT is_active FROM authent_tutor where 
+        user_name = '$username'";
+        $exec_requete_is_active = mysqli_query($conn,$requete_is_active);
+        $reponse_requete_is_active  = mysqli_fetch_array($exec_requete_is_active);
+        $is_active = $reponse_requete_is_active['is_active'];
+
+        if($count !=0 && password_verify($password,$reponse_hash[0])==true && $is_active==1) // nom d'utilisateur et mot de passe corrects
         {
             //récupère l'id-tutor
             $requete_id_tutor = "SELECT id_tutor FROM authent_tutor where 
@@ -54,6 +61,10 @@ if(isset($username) && isset($password))
             $_SESSION['id_tutor'] = $id_tutor;
             $_SESSION['user_type'] = 'tutor';
             header('Location: home_conn.php');        
+        }
+        else if($count !=0 && password_verify($password,$reponse_hash[0])==true && $is_active==0) // nom d'utilisateur et mot de passe corrects
+        {
+            header('Location: authent.php?erreur=4');      
         }
         else
         {

@@ -52,7 +52,7 @@ if($name !== "" && $firstname !== "" && $company !== "" && $tutored_student !== 
         }
 
         //ecriture à la table authent_tutor
-        $requete3 = "INSERT INTO authent_tutor (id_tutor, email, user_name, password) VALUES ('$reponse[0]', '$mail','$username','$password')";
+        $requete3 = "INSERT INTO authent_tutor (id_tutor, email, user_name, password, is_active) VALUES ('$reponse[0]', '$mail','$username','$password', 0)";
         $exec_requete3 = mysqli_query($conn, $requete3);
         if(!$exec_requete3){
             die('Erreur : ' .mysqli_connect_error());
